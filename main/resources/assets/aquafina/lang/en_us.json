@@ -7,8 +7,8 @@
   "item.aquafina.yeti_crab_spawn_egg": "Yeti Crab Spawn Egg",
   "item.aquafina.angelfish_spawn_egg": "Angelfish Spawn Egg",
   "item.aquafina.goblin_shark_spawn_egg": "Goblin Shark Spawn Egg",
-  "item.aquafina.spider_crab_spawn_egg": "Spider crab Spawn Egg",
-  "item.aquafina.sleeper_shark_spawn_egg": "Sleeper shark Spawn Egg",
+  "item.aquafina.spider_crab_spawn_egg": "Spider Crab Spawn Egg",
+  "item.aquafina.sleeper_shark_spawn_egg": "Sleeper Shark Spawn Egg",
   "item.aquafina.dumbo_octopus_spawn_egg": "Dumbo Octopus Spawn Egg",
   "item.aquafina.horseshoe_crab_spawn_egg": "Horseshoe Crab Spawn Egg",
   "item.aquafina.sea_urchin_spawn_egg": "Sea Urchin Spawn Egg",
@@ -127,10 +127,12 @@
   "item.aquafina.raw_tilapia": "Raw Tilapia",
   "item.aquafina.raw_royal_gramma": "Raw Royal Gramma",
   "item.aquafina.raw_starfish": "Raw Starfish",
+  "item.aquafina.raw_piranha": "Raw Piranha",
   "item.aquafina.meaty_spider_crab_leg": "Meaty Spider Crab Leg",
   "item.aquafina.bucket_of_mahi_mahi": "Bucket of Mahi Mahi",
   "item.aquafina.bucket_of_horseshoe_crab": "Bucket of Horseshoe Crab",
   "item.aquafina.bucket_of_boxfish": "Bucket of Boxfish",
   "item.aquafina.bucket_of_ice_fish": "Bucket of Ice Fish",
-  "item.aquafina.bucket_of_yeti_crab": "Bucket of Yeti Crab"
+  "item.aquafina.bucket_of_yeti_crab": "Bucket of Yeti Crab",
+  "item.aquafina.bucket_of_angelfish": "Bucket of AngelFish"
 }
