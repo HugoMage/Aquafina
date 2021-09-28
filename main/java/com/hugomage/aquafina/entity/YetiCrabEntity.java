@@ -15,6 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.pathfinding.GroundPathNavigator;
 import net.minecraft.pathfinding.PathNavigator;
 import net.minecraft.pathfinding.PathNodeType;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
@@ -67,50 +68,31 @@ public class YetiCrabEntity extends AbstractGroupFishEntity {
 
 
     static class MoveHelperController extends MovementController {
-        private final YetiCrabEntity dolphin;
+        public final YetiCrabEntity ray;
 
-        public MoveHelperController(YetiCrabEntity p_i48945_1_) {
-            super(p_i48945_1_);
-            this.dolphin = p_i48945_1_;
+        MoveHelperController(YetiCrabEntity ray) {
+            super(ray);
+            this.ray = ray;
         }
-
         public void tick() {
-            if (this.dolphin.isInWater()) {
-                this.dolphin.setDeltaMovement(this.dolphin.getDeltaMovement().add(0.0D, 0.005D, 0.0D));
+            if (this.ray.isEyeInFluid(FluidTags.WATER)) {
+                this.ray.setDeltaMovement(this.ray.getDeltaMovement().add(0.0D, 0.0D, 0.0D));
             }
 
-            if (this.operation == MovementController.Action.MOVE_TO && !this.dolphin.getNavigation().isDone()) {
-                double d0 = this.wantedX - this.dolphin.getX();
-                double d1 = this.wantedY - this.dolphin.getY();
-                double d2 = this.wantedZ - this.dolphin.getZ();
-                double d3 = d0 * d0 + d1 * d1 + d2 * d2;
-                if (d3 < (double)2.5000003E-7F) {
-                    this.mob.setZza(0.0F);
-                } else {
-                    float f = (float)(MathHelper.atan2(d2, d0) * (double)(180F / (float)Math.PI)) - 90.0F;
-                    this.dolphin.yRot = this.rotlerp(this.dolphin.yRot, f, 10.0F);
-                    this.dolphin.yBodyRot = this.dolphin.yRot;
-                    this.dolphin.yHeadRot = this.dolphin.yRot;
-                    float f1 = (float)(this.speedModifier * this.dolphin.getAttributeValue(Attributes.MOVEMENT_SPEED));
-                    if (this.dolphin.isInWater()) {
-                        this.dolphin.setSpeed(f1 * 0.02F);
-                        float f2 = -((float)(MathHelper.atan2(d1, (double)MathHelper.sqrt(d0 * d0 + d2 * d2)) * (double)(180F / (float)Math.PI)));
-                        f2 = MathHelper.clamp(MathHelper.wrapDegrees(f2), -85.0F, 85.0F);
-                        this.dolphin.xRot = this.rotlerp(this.dolphin.xRot, f2, 5.0F);
-                        float f3 = MathHelper.cos(this.dolphin.xRot * ((float)Math.PI / 180F));
-                        float f4 = MathHelper.sin(this.dolphin.xRot * ((float)Math.PI / 180F));
-                        this.dolphin.zza = f3 * f1;
-                        this.dolphin.yya = -f4 * f1;
-                    } else {
-                        this.dolphin.setSpeed(f1 * 0.1F);
-                    }
-
-                }
+            if (this.operation == Action.MOVE_TO && !this.ray.getNavigation().isDone()) {
+                double d0 = this.wantedX - this.ray.getX();
+                double d1 = this.wantedY - this.ray.getY();
+                double d2 = this.wantedZ - this.ray.getZ();
+                double d3 = (double) MathHelper.sqrt(d0 * d0 + d1 * d1 + d2 * d2);
+                d1 = d1 / d3;
+                float f = (float)(MathHelper.atan2(d2, d0) * (double)(180F / (float)Math.PI)) - 90.0F;
+                this.ray.yRot = this.rotlerp(this.ray.yRot, f, 90.0F);
+                this.ray.yBodyRot = this.ray.yRot;
+                float f1 = (float)(this.speedModifier * this.ray.getAttribute(Attributes.MOVEMENT_SPEED).getValue());
+                this.ray.setSpeed(MathHelper.lerp(0.125F, this.ray.getSpeed(), f1));
+                this.ray.setDeltaMovement(this.ray.getDeltaMovement().add(0.0D, (double)this.ray.getSpeed() * d1 * 0.1D, 0.0D));
             } else {
-                this.dolphin.setSpeed(0.0F);
-                this.dolphin.setXxa(0.0F);
-                this.dolphin.setYya(0.0F);
-                this.dolphin.setZza(0.0F);
+                this.ray.setSpeed(0.0F);
             }
         }
     }
