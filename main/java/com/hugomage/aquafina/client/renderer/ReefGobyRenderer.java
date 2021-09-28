@@ -17,7 +17,7 @@ public class ReefGobyRenderer extends MobRenderer<ReefGobyEntity, ReefGobyModel<
 
     protected static final ResourceLocation BICOLOR = new ResourceLocation(Aquafina.MOD_ID, "textures/entity/fire_reef_goby.png");
     protected static final ResourceLocation EMPEROR = new ResourceLocation(Aquafina.MOD_ID, "textures/entity/yellow_reef_goby.png");
-    protected static final ResourceLocation FIRE = new ResourceLocation(Aquafina.MOD_ID, "textures/entity/blue_banded_reef_goby.png");
+    protected static final ResourceLocation FIRE = new ResourceLocation(Aquafina.MOD_ID, "textures/entity/bluebanded_reef_goby.png");
 
     public ReefGobyRenderer(EntityRendererManager renderManagerIn) {
         super(renderManagerIn, new ReefGobyModel<>(), 0.2F);
