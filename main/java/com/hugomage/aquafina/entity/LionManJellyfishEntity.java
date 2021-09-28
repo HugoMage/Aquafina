@@ -1,5 +1,6 @@
 package com.hugomage.aquafina.entity;
 
+import com.hugomage.aquafina.util.RegistryHandler;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.MobEntity;
@@ -25,6 +26,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IServerWorld;
@@ -51,7 +53,10 @@ public class LionManJellyfishEntity extends WaterMobEntity {
         super(p_i49856_1_, p_i49856_2_);
     }
     private static final DataParameter<Integer> VARIANT = EntityDataManager.defineId(LionManJellyfishEntity.class, DataSerializers.INT);
-
+    @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(RegistryHandler.LIONMANE_SPAWN_EGG.get());
+    }
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
         return MobEntity.createMobAttributes().add(Attributes.MAX_HEALTH, 10).add(Attributes.ATTACK_DAMAGE, 3D).add(Attributes.MOVEMENT_SPEED, 0.1);
     }

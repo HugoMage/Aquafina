@@ -1,5 +1,6 @@
 package com.hugomage.aquafina.entity;
 
+import com.hugomage.aquafina.util.RegistryHandler;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -16,6 +17,7 @@ import net.minecraft.potion.Effects;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
@@ -38,7 +40,10 @@ public class GiantStarfishEntity extends AbstractGroupFishEntity {
 
     public void push (Entity entityIn) {
     }
-
+    @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(RegistryHandler.GIANT_STARFISH_SPAWN_EGG.get());
+    }
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(5, new RandomWalkingGoal(this, 1.0D));

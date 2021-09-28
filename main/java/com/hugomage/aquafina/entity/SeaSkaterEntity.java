@@ -1,5 +1,6 @@
 package com.hugomage.aquafina.entity;
 
+import com.hugomage.aquafina.util.RegistryHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowingFluidBlock;
@@ -28,6 +29,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IWorldReader;
@@ -56,6 +58,10 @@ public class SeaSkaterEntity extends WaterMobEntity {
         public boolean isStableDestination(BlockPos p_188555_1_) {
             return this.level.getBlockState(p_188555_1_).is(Blocks.WATER) || super.isStableDestination(p_188555_1_);
         }
+    }
+    @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(RegistryHandler.SEA_SPAWN_EGG.get());
     }
     public SeaSkaterEntity(EntityType<? extends SeaSkaterEntity> type, World worldIn) {
         super(type, worldIn);

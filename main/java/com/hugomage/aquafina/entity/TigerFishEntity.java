@@ -49,7 +49,10 @@ public class TigerFishEntity extends AbstractGroupFishEntity {
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, ParrotEntity.class, true));
 
     }
-
+    @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(RegistryHandler.TIGERFISH_SPAWN_EGG.get());
+    }
     protected ItemStack getBucketItemStack() {
         return new ItemStack(RegistryHandler.TIGERFISH_BUCKET.get());
     }static class SwimGoal extends RandomSwimmingGoal {

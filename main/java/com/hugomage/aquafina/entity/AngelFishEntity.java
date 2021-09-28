@@ -20,6 +20,7 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IServerWorld;
 import net.minecraft.world.World;
@@ -35,7 +36,10 @@ public class AngelFishEntity extends AbstractGroupFishEntity {
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
         return MobEntity.createMobAttributes().add(Attributes.MAX_HEALTH, 10).add(Attributes.ATTACK_DAMAGE, 3D).add(Attributes.MOVEMENT_SPEED, 1.0);
     }
-
+    @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(RegistryHandler.ANGELFISH_SPAWN_EGG.get());
+    }
 
     @Override
     protected void registerGoals() {

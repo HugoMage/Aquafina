@@ -18,6 +18,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 public class HorseShoeCrabEntity extends AbstractGroupFishEntity {
@@ -35,7 +36,10 @@ public class HorseShoeCrabEntity extends AbstractGroupFishEntity {
     protected PathNavigator createNavigation(World world) {
         return new GroundPathNavigator(this, world);
     }
-
+    @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(RegistryHandler.HORSESHOECRAB_SPAWN_EGG.get());
+    }
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(5, new RandomWalkingGoal(this, 1.0D));

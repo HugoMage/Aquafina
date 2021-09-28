@@ -1,5 +1,6 @@
 package com.hugomage.aquafina.entity;
 
+import com.hugomage.aquafina.util.RegistryHandler;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
@@ -17,6 +18,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 public class SpiderCrabEntity extends AbstractGroupFishEntity {
@@ -42,7 +44,10 @@ public class SpiderCrabEntity extends AbstractGroupFishEntity {
         this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.0D, true));
 
     }
-
+    @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(RegistryHandler.SPIDER_CRAB_SPAWN_EGG.get());
+    }
     public void aiStep() {
         if (!this.isInWater() && this.onGround && this.verticalCollision) {
             this.onGround = false;

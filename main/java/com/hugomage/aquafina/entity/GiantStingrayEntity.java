@@ -1,5 +1,6 @@
 package com.hugomage.aquafina.entity;
 
+import com.hugomage.aquafina.util.RegistryHandler;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -22,6 +23,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
@@ -44,7 +46,10 @@ public class GiantStingrayEntity extends AbstractGroupFishEntity {
         return new GroundPathNavigator(this, world);
     }
 
-
+    @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(RegistryHandler.GIANTSTINGRAY_SPAWN_EGG.get());
+    }
     public boolean doHurtTarget(Entity p_70652_1_) {
         if (super.doHurtTarget(p_70652_1_)) {
             if (p_70652_1_ instanceof LivingEntity) {

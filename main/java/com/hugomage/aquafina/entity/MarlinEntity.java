@@ -1,5 +1,6 @@
 package com.hugomage.aquafina.entity;
 
+import com.hugomage.aquafina.util.RegistryHandler;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
@@ -19,6 +20,7 @@ import net.minecraft.pathfinding.SwimmerPathNavigator;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.*;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 public class MarlinEntity extends AbstractFishEntity {
@@ -41,6 +43,10 @@ public class MarlinEntity extends AbstractFishEntity {
 
 
         }
+    @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(RegistryHandler.MARLIN_SPAWN_EGG.get());
+    }
     public boolean isFood(ItemStack p_70877_1_) {
         return TEMPT_INGREDIENT.test(p_70877_1_);
     }

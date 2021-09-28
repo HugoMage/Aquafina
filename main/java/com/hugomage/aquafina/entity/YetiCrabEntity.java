@@ -22,6 +22,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 
@@ -94,7 +95,10 @@ public class YetiCrabEntity extends AbstractGroupFishEntity {
             }
         }
     }
-
+    @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(RegistryHandler.YETI_CRAB_SPAWN_EGG.get());
+    }
 
 
 

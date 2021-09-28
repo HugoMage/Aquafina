@@ -59,6 +59,10 @@ public class TilapiaEntity extends AbstractGroupFishEntity {
         }
     }
     @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(RegistryHandler.TILAPIA_SPAWN_EGG.get());
+    }
+    @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(VARIANT, 0);
@@ -68,10 +72,6 @@ public class TilapiaEntity extends AbstractGroupFishEntity {
     public void addAdditionalSaveData(CompoundNBT compound) {
         super.addAdditionalSaveData(compound);
         compound.putInt("Variant", getVariant());
-    }
-    @Override
-    public ItemStack getPickedResult(RayTraceResult target) {
-        return new ItemStack(RegistryHandler.TILAPIA_SPAWN_EGG.get());
     }
     @Override
     public void readAdditionalSaveData(CompoundNBT compound) {

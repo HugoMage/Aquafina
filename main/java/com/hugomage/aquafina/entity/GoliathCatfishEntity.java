@@ -1,5 +1,6 @@
 package com.hugomage.aquafina.entity;
 
+import com.hugomage.aquafina.util.RegistryHandler;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
@@ -21,6 +22,7 @@ import net.minecraft.pathfinding.SwimmerPathNavigator;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -68,6 +70,10 @@ public class GoliathCatfishEntity extends WaterMobEntity {
         this.goalSelector.addGoal(1, new GoliathCatfishEntity.SwimGoal(this));
 
 
+    }
+    @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(RegistryHandler.GOLIATH_CATFISH_SPAWN_EGG.get());
     }
     public boolean isFood(ItemStack p_70877_1_) {
         return TEMPT_INGREDIENT.test(p_70877_1_);

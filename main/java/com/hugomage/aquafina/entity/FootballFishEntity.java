@@ -20,6 +20,7 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 
@@ -45,6 +46,10 @@ public class FootballFishEntity extends AbstractGroupFishEntity {
 
 
 
+    }
+    @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(RegistryHandler.FOOTBALLFISH_SPAWN_EGG.get());
     }
     @Override
     protected ItemStack getBucketItemStack()  {

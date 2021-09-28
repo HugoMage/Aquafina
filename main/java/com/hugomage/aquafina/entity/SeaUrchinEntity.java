@@ -1,5 +1,6 @@
 package com.hugomage.aquafina.entity;
 
+import com.hugomage.aquafina.util.RegistryHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -23,6 +24,7 @@ import net.minecraft.potion.Effects;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 
@@ -42,7 +44,10 @@ public class SeaUrchinEntity extends AbstractGroupFishEntity {
         this.setPathfindingMalus(PathNodeType.WATER, 1.0F);
         this.maxUpStep = 0.0f;
     }
-
+    @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(RegistryHandler.SEAURCHIN_SPAWN_EGG.get());
+    }
     protected PathNavigator createNavigation(World world) {
         return new GroundPathNavigator(this, world);
     }

@@ -24,6 +24,7 @@ import net.minecraft.util.EntityPredicates;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 
@@ -52,7 +53,10 @@ public class PiranhaEntity extends AbstractGroupFishEntity {
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, ZombieEntity.class, true));
 
     }
-
+    @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(RegistryHandler.PIRANHA_SPAWN_EGG.get());
+    }
     @Override
     protected ItemStack getBucketItemStack()  {
         return new ItemStack(RegistryHandler.PIRANHA_BUCKET.get());

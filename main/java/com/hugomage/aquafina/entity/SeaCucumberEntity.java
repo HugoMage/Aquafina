@@ -1,5 +1,6 @@
 package com.hugomage.aquafina.entity;
 
+import com.hugomage.aquafina.util.RegistryHandler;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.MobEntity;
@@ -22,6 +23,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IServerWorld;
 import net.minecraft.world.World;
@@ -48,7 +50,10 @@ public class SeaCucumberEntity extends AbstractGroupFishEntity {
     public int getVariant() {
         return this.entityData.get(DATA_VARIANT_ID);
     }
-
+    @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(RegistryHandler.SEACUCUMBER_SPAWN_EGG.get());
+    }
     private void setVariant(int variant) {
         this.entityData.set(DATA_VARIANT_ID, variant);
     }

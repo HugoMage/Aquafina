@@ -1,5 +1,6 @@
 package com.hugomage.aquafina.entity;
 
+import com.hugomage.aquafina.util.RegistryHandler;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.MobEntity;
@@ -24,6 +25,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IServerWorld;
 import net.minecraft.world.World;
@@ -49,7 +51,10 @@ public class WobbegongEntity extends AbstractGroupFishEntity {
     protected ItemStack getBucketItemStack() {
         return null;
     }
-
+    @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(RegistryHandler.WOBBEGONG_SPAWN_EGG.get());
+    }
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new RandomWalkingGoal(this, 1.0D));

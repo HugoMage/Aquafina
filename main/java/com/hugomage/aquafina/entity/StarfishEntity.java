@@ -21,6 +21,7 @@ import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IServerWorld;
 import net.minecraft.world.World;
@@ -48,7 +49,10 @@ public class StarfishEntity extends AbstractGroupFishEntity {
 
     public void push (Entity entityIn) {
     }
-
+    @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(RegistryHandler.STARFISH_SPAWN_EGG.get());
+    }
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(5, new RandomWalkingGoal(this, 1.0D));

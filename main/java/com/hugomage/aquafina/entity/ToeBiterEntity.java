@@ -28,6 +28,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 public class ToeBiterEntity extends AbstractGroupFishEntity {
@@ -46,6 +47,10 @@ public class ToeBiterEntity extends AbstractGroupFishEntity {
         }
 
         super.aiStep();
+    }
+    @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(RegistryHandler.TOEBITER_SPAWN_EGG.get());
     }
     static class MoveHelperController extends MovementController {
         private final ToeBiterEntity fish;

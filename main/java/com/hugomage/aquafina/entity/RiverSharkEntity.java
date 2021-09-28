@@ -1,5 +1,6 @@
 package com.hugomage.aquafina.entity;
 
+import com.hugomage.aquafina.util.RegistryHandler;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
@@ -19,6 +20,7 @@ import net.minecraft.item.Items;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 public class RiverSharkEntity extends AbstractGroupFishEntity {
@@ -44,6 +46,10 @@ public class RiverSharkEntity extends AbstractGroupFishEntity {
 
 
 
+    }
+    @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(RegistryHandler.RIVERSHARK_SPAWN_EGG.get());
     }
     @Override
     protected ItemStack getBucketItemStack() {

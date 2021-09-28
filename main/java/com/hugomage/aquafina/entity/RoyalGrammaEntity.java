@@ -48,6 +48,10 @@ public class RoyalGrammaEntity extends AbstractGroupFishEntity {
         this.goalSelector.addGoal(3, new AvoidEntityGoal<>(this, PlayerEntity.class, 6.0F, 1.0D, 1.2D));
 
     }
+    @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(RegistryHandler.ROYAL_GRAMMA_SPAWN_EGG.get());
+    }
     public int getVariant() {
         return this.entityData.get(VARIANT);
     }

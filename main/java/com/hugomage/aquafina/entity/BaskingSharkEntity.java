@@ -1,5 +1,6 @@
 package com.hugomage.aquafina.entity;
 
+import com.hugomage.aquafina.util.RegistryHandler;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
@@ -18,6 +19,7 @@ import net.minecraft.pathfinding.SwimmerPathNavigator;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.*;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 public class BaskingSharkEntity extends AbstractFishEntity {
@@ -70,7 +72,10 @@ public class BaskingSharkEntity extends AbstractFishEntity {
         return new ItemStack(Items.WATER_BUCKET, 1);
     }
 
-
+    @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(RegistryHandler.BASKING_SHARK_SPAWN_EGG.get());
+    }
     static class SwimGoal extends RandomSwimmingGoal {
         private final BaskingSharkEntity fish;
 

@@ -12,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 public class OarfishEntity extends AbstractGroupFishEntity {
@@ -35,7 +36,10 @@ public class OarfishEntity extends AbstractGroupFishEntity {
         this.goalSelector.addGoal(3, new AvoidEntityGoal<>(this, PlayerEntity.class, 6.0F, 1.0D, 1.2D));
 
     }
-
+    @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(RegistryHandler.OARFISH_SPAWN_EGG.get());
+    }
     static class SwimGoal extends RandomSwimmingGoal {
         private final OarfishEntity fish;
 

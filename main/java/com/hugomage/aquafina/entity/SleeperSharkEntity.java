@@ -1,5 +1,6 @@
 package com.hugomage.aquafina.entity;
 
+import com.hugomage.aquafina.util.RegistryHandler;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
@@ -18,6 +19,7 @@ import net.minecraft.pathfinding.SwimmerPathNavigator;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.*;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 public class SleeperSharkEntity extends WaterMobEntity {
@@ -43,7 +45,10 @@ public class SleeperSharkEntity extends WaterMobEntity {
     public boolean isFood(ItemStack p_70877_1_) {
         return TEMPT_INGREDIENT.test(p_70877_1_);
     }
-
+    @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(RegistryHandler.SLEEPER_SHARK_SPAWN_EGG.get());
+    }
     public ActionResultType mobInteract(PlayerEntity p_230254_1_, Hand p_230254_2_) {
         ItemStack itemstack = p_230254_1_.getItemInHand(p_230254_2_);
         Item item = itemstack.getItem();
