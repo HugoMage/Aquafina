@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "aquafina:piranha"
+    },
+    {
+      "item": "aquafina:toe_biter_leg"
+    },
+    {
+      "item": "aquafina:beluga_caviar"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "aquafina:fresh_soup"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "aquafina:raw_stingray_slice"
+  },
+  "result": "aquafina:cooked_stingray_slice",
+  "experience": 0.35,
+  "cookingtime": 200
+}

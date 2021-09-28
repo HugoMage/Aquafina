@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " ",
+    " #X",
+    " $"
+  ],
+  "key": {
+    "#": {
+      "item": "aquafina:piranha"
+    },
+    "$": {
+      "item": "minecraft:oak_slab"
+    },
+    "X": {
+      "item": "minecraft:wool"
+    }
+  },
+  "result": {
+    "item": "aquafina:stuffed_piranha"
+  }
+}

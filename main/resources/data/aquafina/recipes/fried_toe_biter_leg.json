@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "aquafina:toe_biter_leg"
+  },
+  "result": "aquafina:fried_toe_biter_leg",
+  "experience": 0.35,
+  "cookingtime": 200
+}

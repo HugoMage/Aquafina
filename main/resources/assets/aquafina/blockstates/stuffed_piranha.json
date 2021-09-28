@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "aquafina:block/stuffed_piranha",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "aquafina:block/stuffed_piranha",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "aquafina:block/stuffed_piranha"
+    },
+    "facing=west": {
+      "model": "aquafina:block/stuffed_piranha",
+      "y": 90
+    }
+  }
+}
