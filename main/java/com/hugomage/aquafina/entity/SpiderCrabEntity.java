@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.pathfinding.GroundPathNavigator;
 import net.minecraft.pathfinding.PathNavigator;
 import net.minecraft.pathfinding.PathNodeType;
+import net.minecraft.pathfinding.SwimmerPathNavigator;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
@@ -26,8 +27,7 @@ public class SpiderCrabEntity extends AbstractGroupFishEntity {
     public SpiderCrabEntity(EntityType<? extends SpiderCrabEntity> type, World worldIn) {
         super(type, worldIn);
         this.moveControl = new MoveHelperController(this);
-        this.setPathfindingMalus(PathNodeType.WATER, 1.0F);
-        this.maxUpStep = 0.0f;
+
     }
 
     protected PathNavigator createNavigation(World world) {
