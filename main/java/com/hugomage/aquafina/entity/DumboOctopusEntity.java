@@ -87,17 +87,11 @@ public class DumboOctopusEntity extends AbstractGroupFishEntity {
         setVariant(compound.getInt("Variant"));
     }
     @Nullable
-    @Override
     public ILivingEntityData finalizeSpawn(IServerWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
-        spawnDataIn = super.finalizeSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
-        if (dataTag == null) {
-            setVariant(random.nextInt(1));
-        } else {
-            if (dataTag.contains("Variant", 3)){
-                this.setVariant(dataTag.getInt("Variant"));
-            }
+        if(this.random.nextInt(2) == 0){
+            this.setVariant(1);
         }
-        return spawnDataIn;
+        return super.finalizeSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
     }
     static class SwimGoal extends RandomSwimmingGoal {
         private final DumboOctopusEntity fish;

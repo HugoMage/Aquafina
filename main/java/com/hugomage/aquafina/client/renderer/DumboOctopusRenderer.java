@@ -17,6 +17,7 @@ import net.minecraft.util.math.vector.Vector3f;
 public class DumboOctopusRenderer extends MobRenderer<DumboOctopusEntity, DumboOctopusModel<DumboOctopusEntity>> {
 
     protected static final ResourceLocation TEXTURE = new ResourceLocation(Aquafina.MOD_ID, "textures/entity/yellow_dumbo_octopus.png");
+    protected static final ResourceLocation PINK = new ResourceLocation(Aquafina.MOD_ID, "textures/entity/pink_dumbo_octopus.png");
 
 
     public DumboOctopusRenderer(EntityRendererManager renderManagerIn) {
@@ -33,6 +34,9 @@ public class DumboOctopusRenderer extends MobRenderer<DumboOctopusEntity, DumboO
     }
     @Override
     public ResourceLocation getTextureLocation(DumboOctopusEntity entity) {
+        if(entity.getVariant() == 1){
+            return PINK;
+        }
         return TEXTURE;
     }
 }
