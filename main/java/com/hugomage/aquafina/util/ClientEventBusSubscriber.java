@@ -70,6 +70,8 @@ public class ClientEventBusSubscriber {
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.GOLIATHCATFISH.get(), GoliathRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.FATCARP.get(), FatCarpRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.BELUGASTURGEON.get(), BelugaSturgeonRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SPONGEBOB.get(), SpongeBobRenderer::new);
+
         RenderTypeLookup.setRenderLayer(RegistryHandler.STUFFED_PIRANHA.get(), RenderType.cutout());
 
     }

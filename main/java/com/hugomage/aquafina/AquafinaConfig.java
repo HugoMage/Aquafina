@@ -65,7 +65,7 @@ public class AquafinaConfig {
     public static int MahiMahiSpawnWeight;
     public static int MarlinSpawnWeight;
     public static int MolaMolaSpawnWeight;
-
+    public static int SpongeBobSpawnWeight;
 
     @SubscribeEvent
     public static void configLoad(ModConfig.ModConfigEvent event) {
@@ -135,7 +135,7 @@ public class AquafinaConfig {
         public final ForgeConfigSpec.IntValue MahiMahiSpawnWeight;
         public final ForgeConfigSpec.IntValue MarlinSpawnWeight;
         public final ForgeConfigSpec.IntValue MolaMolaSpawnWeight;
-
+        public final ForgeConfigSpec.IntValue SpongeBobSpawnWeight;
         public static void reload() {
             AquafinaConfig.OarfishSpawnWeight = INSTANCE.OarfishSpawnWeight.get();
             AquafinaConfig.FatCarpSpawnWeight = INSTANCE.FatCarpSpawnWeight.get();
@@ -187,7 +187,7 @@ public class AquafinaConfig {
             AquafinaConfig.MahiMahiSpawnWeight = INSTANCE.MahiMahiSpawnWeight.get();
             AquafinaConfig.MarlinSpawnWeight = INSTANCE.MarlinSpawnWeight.get();
             AquafinaConfig.MolaMolaSpawnWeight = INSTANCE.MolaMolaSpawnWeight.get();
-
+            AquafinaConfig.SpongeBobSpawnWeight = INSTANCE.SpongeBobSpawnWeight.get();
         }
         Common(ForgeConfigSpec.Builder builder) {
             builder.push("Jungle Fighters Spawn Weight");
@@ -264,6 +264,7 @@ public class AquafinaConfig {
             ManOWarSpawnWeight = builder.comment("Spawn weight of Man O War").defineInRange("man_o_war_spawn_weight", 50, 0, 1000);
             SeaCucumberSpawnWeight = builder.comment("Spawn weight of Sea Cucumber").defineInRange("sea_cucumber_spawn_weight", 50, 0, 1000);
             BullSharkSpawnWeight = builder.comment("Spawn weight of Bull Shark").defineInRange("bull_shark_spawn_weight", 50, 0, 1000);
+            SpongeBobSpawnWeight = builder.comment("Spawn weight of SpongeBob").defineInRange("spongebob_spawn_weight", 50, 0, 1000);
             builder.pop();
 
         }

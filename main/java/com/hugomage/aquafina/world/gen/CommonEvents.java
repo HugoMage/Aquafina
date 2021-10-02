@@ -103,6 +103,7 @@ public class CommonEvents {
                 event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.GIANTSTARFISH.get(),  AquafinaConfig.Common.INSTANCE.GiantStarfishSpawnWeight.get(), 1, 1));
                 event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.CUCUMBER.get(),  AquafinaConfig.Common.INSTANCE.SeaCucumberSpawnWeight.get(), 1, 1));
                 event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.LIONMANE.get(),  AquafinaConfig.Common.INSTANCE.LionManeJellyfishSpawnWeight.get(), 1, 2));
+                event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.SPONGEBOB.get(),  AquafinaConfig.Common.INSTANCE.SpongeBobSpawnWeight.get(), 1, 1));
 
             }
             if (event.getName().equals(new ResourceLocation("minecraft:frozen_river"))) {

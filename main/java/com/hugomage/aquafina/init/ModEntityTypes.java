@@ -209,6 +209,10 @@ public class ModEntityTypes {
             EntityType.Builder.of(ToeBiterEntity::new, EntityClassification.WATER_CREATURE)
                     .sized(0.5f,0.4f)
                     .build(new ResourceLocation(Aquafina.MOD_ID, "toe_biter").toString()));
+    public static final RegistryObject<EntityType<SpongeBobEntity>> SPONGEBOB = ENTITY_TYPES.register("spongebob", ()->
+            EntityType.Builder.of(SpongeBobEntity::new, EntityClassification.WATER_CREATURE)
+                    .sized(0.5f,0.4f)
+                    .build(new ResourceLocation(Aquafina.MOD_ID, "spongebob").toString()));
     public static final RegistryObject<EntityType<GoliathCatfishEntity>> GOLIATHCATFISH = ENTITY_TYPES.register("goliath_catfish", ()->
             EntityType.Builder.of(GoliathCatfishEntity::new, EntityClassification.WATER_CREATURE)
                     .sized(1.4f,1.0f)
