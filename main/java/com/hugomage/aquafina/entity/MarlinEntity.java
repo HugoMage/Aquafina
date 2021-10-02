@@ -30,7 +30,6 @@ public class MarlinEntity extends AbstractFishEntity {
     private static final Ingredient TEMPT_INGREDIENT = Ingredient.of(Items.COD, Items.SALMON);
     public MarlinEntity(EntityType<? extends MarlinEntity> type, World world) {
         super(type, world);
-        this.moveControl = new MarlinEntity.MoveHelperController(this);
     }
     protected PathNavigator createNavigation(World worldIn) {
         return new SwimmerPathNavigator(this, worldIn);
@@ -84,37 +83,6 @@ public class MarlinEntity extends AbstractFishEntity {
         }
     }
 
-    static class MoveHelperController extends MovementController {
-        private final MarlinEntity fish;
-
-        MoveHelperController(MarlinEntity p_i48857_1_) {
-            super(p_i48857_1_);
-            this.fish = p_i48857_1_;
-        }
-
-        public void tick() {
-            if (this.fish.isEyeInFluid(FluidTags.WATER)) {
-                this.fish.setDeltaMovement(this.fish.getDeltaMovement().add(0.0D, 0.005D, 0.0D));
-            }
-
-            if (this.operation == Action.MOVE_TO && !this.fish.getNavigation().isDone()) {
-                float f = (float)(this.speedModifier * this.fish.getAttributeValue(Attributes.MOVEMENT_SPEED));
-                this.fish.setSpeed(MathHelper.lerp(0.125F, this.fish.getSpeed(), f));
-                double d0 = this.wantedX - this.fish.getX();
-                double d1 = this.wantedY - this.fish.getY();
-                double d2 = this.wantedZ - this.fish.getZ();
-                if (d1 != 0.0D) {
-                    double d3 = (double)MathHelper.sqrt(d0 * d0 + d1 * d1 + d2 * d2);
-                    this.fish.setDeltaMovement(this.fish.getDeltaMovement().add(0.0D, (double)this.fish.getSpeed() * (d1 / d3) * 0.1D, 0.0D));
-                }
-
-
-
-            } else {
-                this.fish.setSpeed(0.0F);
-            }
-        }
-    }
 
     protected SoundEvent getAmbientSound() {
         return SoundEvents.COD_AMBIENT;
