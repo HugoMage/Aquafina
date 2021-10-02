@@ -16,6 +16,7 @@ import java.util.Random;
 @Mod.EventBusSubscriber(modid = com.hugomage.aquafina.Aquafina.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class AquafinaConfig {
     public static int OarfishSpawnWeight;
+    public static int FatCarpSpawnWeight;
     public static int GiantStarfishSpawnWeight;
     public static int SalmonSharkSpawnWeight;
     public static int FootballFishSpawnWeight;
@@ -84,8 +85,8 @@ public class AquafinaConfig {
             INSTANCE = pair.getLeft();
             SPEC = pair.getRight();
         }
-
         public final ForgeConfigSpec.IntValue OarfishSpawnWeight;
+        public final ForgeConfigSpec.IntValue FatCarpSpawnWeight;
         public final ForgeConfigSpec.IntValue GiantStarfishSpawnWeight;
         public final ForgeConfigSpec.IntValue SalmonSharkSpawnWeight;
         public final ForgeConfigSpec.IntValue FootballFishSpawnWeight;
@@ -137,6 +138,7 @@ public class AquafinaConfig {
 
         public static void reload() {
             AquafinaConfig.OarfishSpawnWeight = INSTANCE.OarfishSpawnWeight.get();
+            AquafinaConfig.FatCarpSpawnWeight = INSTANCE.FatCarpSpawnWeight.get();
             AquafinaConfig.FootballFishSpawnWeight = INSTANCE.FootballFishSpawnWeight.get();
             AquafinaConfig.YetiCrabSpawnWeight = INSTANCE.YetiCrabSpawnWeight.get();
             AquafinaConfig.GoblinSharkSpawnWeight = INSTANCE.GoblinSharkSpawnWeight.get();
@@ -197,6 +199,7 @@ public class AquafinaConfig {
 
             builder.push("River Warriors Spawn Weight");
             PaddleFishSpawnWeight = builder.comment("Spawn weight of Paddlefish").defineInRange("paddlefish_spawn_weight", 50, 0, 1000);
+            FatCarpSpawnWeight = builder.comment("Spawn weight of Fat Carp").defineInRange("fat_carp_spawn_weight", 30, 0, 1000);
             TilapiaSpawnWeight = builder.comment("Spawn weight of Tilapia").defineInRange("tilapia_spawn_weight", 70, 0, 1000);
             ToeBiterSpawnWeight = builder.comment("Spawn weight of Toe Biter").defineInRange("toe_biter_spawn_weight", 30, 0, 1000);
             RiverSharkSpawnWeight = builder.comment("Spawn weight of RiverShark").defineInRange("rivershark_spawn_weight", 10, 0, 1000);

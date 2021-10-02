@@ -31,6 +31,8 @@ public class CommonEvents {
             event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.PADDLEFISH.get(),  AquafinaConfig.Common.INSTANCE.PaddleFishSpawnWeight.get(), 1, 2));
             event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.TOEBITER.get(),  AquafinaConfig.Common.INSTANCE.ToeBiterSpawnWeight.get(), 1, 2));
             event.getSpawns().getSpawner(EntityClassification.CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.BELUGASTURGEON.get(),  AquafinaConfig.Common.INSTANCE.BelugaSturgeonSpawnWeight.get(), 1, 1));
+            event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.FATCARP.get(),  AquafinaConfig.Common.INSTANCE.FatCarpSpawnWeight.get(), 1, 2));
+
         }
         if (event.getCategory() == Biome.Category.JUNGLE) {
             event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.ARAPAIMA.get(),  AquafinaConfig.Common.INSTANCE.ArapaimaSpawnWeight.get(), 1, 3));

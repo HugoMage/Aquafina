@@ -189,6 +189,10 @@ public class ModEntityTypes {
             EntityType.Builder.of(TigerFishEntity::new, EntityClassification.WATER_CREATURE)
                     .sized(0.6f,0.7f)
                     .build(new ResourceLocation(Aquafina.MOD_ID, "tigerfish").toString()));
+    public static final RegistryObject<EntityType<FatCarpEntity>> FATCARP = ENTITY_TYPES.register("fat_carp", ()->
+            EntityType.Builder.of(FatCarpEntity::new, EntityClassification.WATER_CREATURE)
+                    .sized(0.6f,0.7f)
+                    .build(new ResourceLocation(Aquafina.MOD_ID, "fat_carp").toString()));
     public static final RegistryObject<EntityType<RiverSharkEntity>> RIVERSHARK = ENTITY_TYPES.register("river_shark", ()->
             EntityType.Builder.of(RiverSharkEntity::new, EntityClassification.WATER_CREATURE)
                     .sized(0.6f,0.7f)

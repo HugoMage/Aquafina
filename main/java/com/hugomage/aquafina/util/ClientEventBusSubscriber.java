@@ -68,6 +68,7 @@ public class ClientEventBusSubscriber {
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.TILAPIA.get(), TilapiaRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.TOEBITER.get(), ToeBiterRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.GOLIATHCATFISH.get(), GoliathRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.FATCARP.get(), FatCarpRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.BELUGASTURGEON.get(), BelugaSturgeonRenderer::new);
         RenderTypeLookup.setRenderLayer(RegistryHandler.STUFFED_PIRANHA.get(), RenderType.cutout());
 

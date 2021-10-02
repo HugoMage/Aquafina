@@ -114,6 +114,7 @@ public class Aquafina
         EntitySpawnPlacementRegistry.register(ModEntityTypes.MAHIMAHI.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AbstractFishEntity::checkFishSpawnRules);
         EntitySpawnPlacementRegistry.register(ModEntityTypes.MARLIN.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AbstractFishEntity::checkFishSpawnRules);
         EntitySpawnPlacementRegistry.register(ModEntityTypes.MOLA_MOLA.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AbstractFishEntity::checkFishSpawnRules);
+        EntitySpawnPlacementRegistry.register(ModEntityTypes.FATCARP.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AbstractFishEntity::checkFishSpawnRules);
 
     }
     private void registerEntityAttributes(EntityAttributeCreationEvent event) {
@@ -166,6 +167,7 @@ public class Aquafina
         GlobalEntityTypeAttributes.put(ModEntityTypes.TILAPIA.get(), TilapiaEntity.setCustomAttributes().build());
         GlobalEntityTypeAttributes.put(ModEntityTypes.GOLIATHCATFISH.get(), GoliathCatfishEntity.setCustomAttributes().build());
         GlobalEntityTypeAttributes.put(ModEntityTypes.BELUGASTURGEON.get(), BelugaSturgeonEntity.setCustomAttributes().build());
+        GlobalEntityTypeAttributes.put(ModEntityTypes.FATCARP.get(), FatCarpEntity.setCustomAttributes().build());
 
     }
     private void registerClient(FMLClientSetupEvent event) {
