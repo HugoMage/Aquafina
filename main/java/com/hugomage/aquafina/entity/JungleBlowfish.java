@@ -10,11 +10,14 @@ import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.ai.goal.RandomSwimmingGoal;
 import net.minecraft.entity.passive.fish.AbstractGroupFishEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
@@ -25,11 +28,11 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class FatCarpEntity extends AbstractGroupFishEntity {
-    public FatCarpEntity(EntityType<? extends FatCarpEntity> p_i49856_1_, World p_i49856_2_) {
+public class JungleBlowfish extends AbstractGroupFishEntity {
+    public JungleBlowfish(EntityType<? extends JungleBlowfish> p_i49856_1_, World p_i49856_2_) {
         super(p_i49856_1_, p_i49856_2_);
     }
-    private static final DataParameter<Integer> VARIANT = EntityDataManager.defineId(FatCarpEntity.class, DataSerializers.INT);
+    private static final DataParameter<Integer> VARIANT = EntityDataManager.defineId(JungleBlowfish.class, DataSerializers.INT);
 
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
         return MobEntity.createMobAttributes().add(Attributes.MAX_HEALTH, 10).add(Attributes.ATTACK_DAMAGE, 3D).add(Attributes.MOVEMENT_SPEED, 1.0);
@@ -37,16 +40,19 @@ public class FatCarpEntity extends AbstractGroupFishEntity {
 
     @Override
     protected ItemStack getBucketItemStack()  {
-        return new ItemStack(RegistryHandler.TILAPIA_ICEFISH.get());
-    }
-    @Override
-    public ItemStack getPickedResult(RayTraceResult target) {
-        return new ItemStack(RegistryHandler.FAT_CARP_SPAWN_EGG.get());
+        return new ItemStack(RegistryHandler.MAHIMAHI_BUCKET.get());
     }
 
     @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(RegistryHandler.JUNGLEBLOWFISH_SPAWN_EGG.get());
+    }
+    public void playerTouch(PlayerEntity p_70100_1_) {
+        p_70100_1_.addEffect(new EffectInstance(Effects.POISON, 60, 0));
+    }
+    @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(1, new FatCarpEntity.SwimGoal(this));
+        this.goalSelector.addGoal(1, new JungleBlowfish.SwimGoal(this));
         this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
 
     }
@@ -96,9 +102,9 @@ public class FatCarpEntity extends AbstractGroupFishEntity {
         return spawnDataIn;
     }
     static class SwimGoal extends RandomSwimmingGoal {
-        private final FatCarpEntity fish;
+        private final JungleBlowfish fish;
 
-        public SwimGoal(FatCarpEntity fish) {
+        public SwimGoal(JungleBlowfish fish) {
             super(fish, 2.0D, 40);
             this.fish = fish;
         }

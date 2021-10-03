@@ -67,6 +67,7 @@ public class AquafinaConfig {
     public static int MolaMolaSpawnWeight;
     public static int SpongeBobSpawnWeight;
     public static int TriopSpawnWeight;
+    public static int JungleBlowfishSpawnWeight;
 
     @SubscribeEvent
     public static void configLoad(ModConfig.ModConfigEvent event) {
@@ -138,6 +139,7 @@ public class AquafinaConfig {
         public final ForgeConfigSpec.IntValue MarlinSpawnWeight;
         public final ForgeConfigSpec.IntValue MolaMolaSpawnWeight;
         public final ForgeConfigSpec.IntValue SpongeBobSpawnWeight;
+        public final ForgeConfigSpec.IntValue JungleBlowfishSpawnWeight;
         public static void reload() {
             AquafinaConfig.TriopSpawnWeight = INSTANCE.TriopSpawnWeight.get();
             AquafinaConfig.OarfishSpawnWeight = INSTANCE.OarfishSpawnWeight.get();
@@ -191,12 +193,15 @@ public class AquafinaConfig {
             AquafinaConfig.MarlinSpawnWeight = INSTANCE.MarlinSpawnWeight.get();
             AquafinaConfig.MolaMolaSpawnWeight = INSTANCE.MolaMolaSpawnWeight.get();
             AquafinaConfig.SpongeBobSpawnWeight = INSTANCE.SpongeBobSpawnWeight.get();
+            AquafinaConfig.JungleBlowfishSpawnWeight = INSTANCE.JungleBlowfishSpawnWeight.get();
         }
         Common(ForgeConfigSpec.Builder builder) {
             builder.push("Jungle Fighters Spawn Weight");
-            PiranhaSpawnWeight = builder.comment("Spawn weight of Piranhas").defineInRange("piranha_spawn_weight", 70, 0, 1000);
-            ArapaimaSpawnWeight = builder.comment("Spawn weight of Arapaimas").defineInRange("arapaima_spawn_weight", 70, 0, 1000);
-            TigerfishSpawnWeight = builder.comment("Spawn weight of Tigerfishs").defineInRange("tigerfish_spawn_weight", 40, 0, 1000);
+            PiranhaSpawnWeight = builder.comment("Spawn weight of Piranha").defineInRange("piranha_spawn_weight", 70, 0, 1000);
+            ArapaimaSpawnWeight = builder.comment("Spawn weight of Arapaima").defineInRange("arapaima_spawn_weight", 70, 0, 1000);
+            TigerfishSpawnWeight = builder.comment("Spawn weight of Tigerfish").defineInRange("tigerfish_spawn_weight", 40, 0, 1000);
+            JungleBlowfishSpawnWeight = builder.comment("Spawn weight of Junge Blowfish").defineInRange("jungle_blowfish_spawn_weight", 40, 0, 1000);
+
             builder.pop();
 
 

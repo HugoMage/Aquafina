@@ -90,7 +90,7 @@ public class TriopEntity extends AbstractGroupFishEntity {
     }
     @Override
     public ItemStack getPickedResult(RayTraceResult target) {
-        return new ItemStack(RegistryHandler.YETI_CRAB_SPAWN_EGG.get());
+        return new ItemStack(RegistryHandler.TRIOP_SPAWN_EGG.get());
     }
 
 

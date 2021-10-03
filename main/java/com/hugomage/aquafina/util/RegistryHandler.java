@@ -101,6 +101,7 @@ public class RegistryHandler {
     public static final RegistryObject<ModSpawnEggItem> BELUGA_STURGEON_SPAWN_EGG = ITEMS.register("beluga_sturgeon_spawn_egg",() -> new ModSpawnEggItem(ModEntityTypes.BELUGASTURGEON, 0x98a2a9, 0xeadacf, new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
     public static final RegistryObject<ModSpawnEggItem> FAT_CARP_SPAWN_EGG = ITEMS.register("fat_carp_spawn_egg",() -> new ModSpawnEggItem(ModEntityTypes.FATCARP, 0x4c521b, 0xf6ba78, new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
     public static final RegistryObject<ModSpawnEggItem> TRIOP_SPAWN_EGG = ITEMS.register("triop_spawn_egg",() -> new ModSpawnEggItem(ModEntityTypes.TRIOP, 0x7b8752, 0xcfccb5, new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
+    public static final RegistryObject<ModSpawnEggItem> JUNGLEBLOWFISH_SPAWN_EGG = ITEMS.register("jungle_blowfish_spawn_egg",() -> new ModSpawnEggItem(ModEntityTypes.JUNGLEBLOWFISH, 0xbdbc3e, 0xfae4be, new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
 
 
     // Bucket

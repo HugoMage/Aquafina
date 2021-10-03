@@ -39,6 +39,7 @@ public class CommonEvents {
             event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.ARAPAIMA.get(),  AquafinaConfig.Common.INSTANCE.ArapaimaSpawnWeight.get(), 1, 3));
             event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.PIRANHA.get(),  AquafinaConfig.Common.INSTANCE.PiranhaSpawnWeight.get(), 2, 5));
             event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.TIGERFISH.get(),  AquafinaConfig.Common.INSTANCE.TigerfishSpawnWeight.get(), 1, 4));
+            event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.JUNGLEBLOWFISH.get(),  AquafinaConfig.Common.INSTANCE.JungleBlowfishSpawnWeight.get(), 1, 2));
 
         }
 
