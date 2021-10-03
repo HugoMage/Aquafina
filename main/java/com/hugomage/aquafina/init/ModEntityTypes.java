@@ -176,6 +176,10 @@ public class ModEntityTypes {
             EntityType.Builder.of(PiranhaEntity::new, EntityClassification.WATER_CREATURE)
                     .sized(0.3f,0.4f)
                     .build(new ResourceLocation(Aquafina.MOD_ID, "piranha").toString()));
+    public static final RegistryObject<EntityType<TriopEntity>> TRIOP = ENTITY_TYPES.register("triop", ()->
+            EntityType.Builder.of(TriopEntity::new, EntityClassification.WATER_CREATURE)
+                    .sized(0.3f,0.4f)
+                    .build(new ResourceLocation(Aquafina.MOD_ID, "triop").toString()));
     public static final RegistryObject<EntityType<ArapaimaEntity>> ARAPAIMA = ENTITY_TYPES.register("arapaima", ()->
             EntityType.Builder.of(ArapaimaEntity::new, EntityClassification.WATER_CREATURE)
                     .sized(1.0f,0.6f)

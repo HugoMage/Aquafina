@@ -66,6 +66,7 @@ public class AquafinaConfig {
     public static int MarlinSpawnWeight;
     public static int MolaMolaSpawnWeight;
     public static int SpongeBobSpawnWeight;
+    public static int TriopSpawnWeight;
 
     @SubscribeEvent
     public static void configLoad(ModConfig.ModConfigEvent event) {
@@ -85,6 +86,7 @@ public class AquafinaConfig {
             INSTANCE = pair.getLeft();
             SPEC = pair.getRight();
         }
+        public final ForgeConfigSpec.IntValue TriopSpawnWeight;
         public final ForgeConfigSpec.IntValue OarfishSpawnWeight;
         public final ForgeConfigSpec.IntValue FatCarpSpawnWeight;
         public final ForgeConfigSpec.IntValue GiantStarfishSpawnWeight;
@@ -137,6 +139,7 @@ public class AquafinaConfig {
         public final ForgeConfigSpec.IntValue MolaMolaSpawnWeight;
         public final ForgeConfigSpec.IntValue SpongeBobSpawnWeight;
         public static void reload() {
+            AquafinaConfig.TriopSpawnWeight = INSTANCE.TriopSpawnWeight.get();
             AquafinaConfig.OarfishSpawnWeight = INSTANCE.OarfishSpawnWeight.get();
             AquafinaConfig.FatCarpSpawnWeight = INSTANCE.FatCarpSpawnWeight.get();
             AquafinaConfig.FootballFishSpawnWeight = INSTANCE.FootballFishSpawnWeight.get();
@@ -203,6 +206,7 @@ public class AquafinaConfig {
             TilapiaSpawnWeight = builder.comment("Spawn weight of Tilapia").defineInRange("tilapia_spawn_weight", 70, 0, 1000);
             ToeBiterSpawnWeight = builder.comment("Spawn weight of Toe Biter").defineInRange("toe_biter_spawn_weight", 30, 0, 1000);
             RiverSharkSpawnWeight = builder.comment("Spawn weight of RiverShark").defineInRange("rivershark_spawn_weight", 10, 0, 1000);
+            TriopSpawnWeight = builder.comment("Spawn weight of Triop").defineInRange("triop_spawn_weight", 30, 0, 1000);
             builder.pop();
 
 
