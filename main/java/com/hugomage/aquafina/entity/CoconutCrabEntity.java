@@ -6,6 +6,7 @@ import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.controller.MovementController;
 import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.monster.SpiderEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.fish.AbstractGroupFishEntity;
 import net.minecraft.item.ItemStack;
@@ -13,6 +14,7 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.pathfinding.ClimberPathNavigator;
 import net.minecraft.pathfinding.GroundPathNavigator;
 import net.minecraft.pathfinding.PathNavigator;
 import net.minecraft.pathfinding.PathNodeType;
@@ -31,11 +33,16 @@ import javax.annotation.Nullable;
 
 public class CoconutCrabEntity extends AnimalEntity {
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
-        return MobEntity.createMobAttributes().add(Attributes.MAX_HEALTH, 10).add(Attributes.ATTACK_DAMAGE, 7D).add(Attributes.MOVEMENT_SPEED, 0.3);
+        return MobEntity.createMobAttributes().add(Attributes.MAX_HEALTH, 20.0D)
+                .add(Attributes.MOVEMENT_SPEED, 0.30D)
+                .add(Attributes.ATTACK_DAMAGE, 4D)
+                .add(Attributes.ATTACK_SPEED, 6D)
+                .add(Attributes.ATTACK_KNOCKBACK, 1D);
     }
     private static final DataParameter<Integer> DATA_VARIANT_ID = EntityDataManager.defineId(CoconutCrabEntity.class, DataSerializers.INT);
+    private static final DataParameter<Byte> DATA_FLAGS_ID = EntityDataManager.defineId(CoconutCrabEntity.class, DataSerializers.BYTE);
 
-    public CoconutCrabEntity(EntityType<? extends CoconutCrabEntity> type, World worldIn) {
+    public CoconutCrabEntity(EntityType<? extends AnimalEntity> type, World worldIn) {
         super(type, worldIn);
     }
 
@@ -48,17 +55,16 @@ public class CoconutCrabEntity extends AnimalEntity {
         if (this.hasCustomName()) {
             bucket.setHoverName(this.getCustomName());
         }
-    }protected PathNavigator createNavigation(World world) {
-        return new GroundPathNavigator(this, world);
     }
 
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(3, new RandomWalkingGoal(this, 1.0D));
+        this.goalSelector.addGoal(3, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
         this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
         this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.0D, true));
         this.goalSelector.addGoal(2, new LookRandomlyGoal(this));
     }
+
 
     @Nullable
     @Override
@@ -66,19 +72,12 @@ public class CoconutCrabEntity extends AnimalEntity {
         return null;
     }
 
-    public void aiStep() {
-        if (!this.isInWater() && this.onGround && this.verticalCollision) {
-            this.onGround = false;
-            this.hasImpulse = false;
-        }
-
-        super.aiStep();
-    }
     public void addAdditionalSaveData(CompoundNBT compound) {
         super.addAdditionalSaveData(compound);
         compound.putInt("variant", this.getVariant());
 
     }
+
     @Override
     public ItemStack getPickedResult(RayTraceResult target) {
         return new ItemStack(RegistryHandler.COCONUTCRAB_SPAWN_EGG.get());
@@ -111,19 +110,6 @@ public class CoconutCrabEntity extends AnimalEntity {
 
     }
 
-
-    static class SwimGoal extends RandomSwimmingGoal {
-        private final CoconutCrabEntity fish;
-
-        public SwimGoal(CoconutCrabEntity fish) {
-            super(fish, 1.0D, 40);
-            this.fish = fish;
-        }
-
-        public boolean canUse() {
-            return super.canUse();
-        }
-    }
 
 
 
