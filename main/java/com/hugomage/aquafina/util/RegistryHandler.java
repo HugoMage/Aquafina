@@ -122,6 +122,7 @@ public class RegistryHandler {
     public static final RegistryObject<Item> HORSESHOECRAB_BUCKET = ITEMS.register("bucket_of_horseshoe_crab", () -> new FishBucketItem(ModEntityTypes.HORSESHOECRAB, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
     public static final RegistryObject<Item> TILAPIA_ICEFISH = ITEMS.register("bucket_of_ice_fish", () -> new FishBucketItem(ModEntityTypes.ICEFISH, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
     public static final RegistryObject<Item> YETICRAB_BUCKET = ITEMS.register("bucket_of_yeti_crab", () -> new FishBucketItem(ModEntityTypes.YETICRAB, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
+    public static final RegistryObject<Item> SPONGEBOB_BUCKET = ITEMS.register("bucket_of_sponge_bob", () -> new FishBucketItem(ModEntityTypes.SPONGEBOB, () -> Fluids.WATER, new Item.Properties().stacksTo(1)));
 
 
     // Armor
