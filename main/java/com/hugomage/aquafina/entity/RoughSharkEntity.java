@@ -47,9 +47,10 @@ public class RoughSharkEntity extends AbstractGroupFishEntity {
         return new ItemStack(RegistryHandler.ROUGHSHARK_SPAWN_EGG.get());
     }
     @Override
-    protected ItemStack getBucketItemStack() {
-        return null;
+    protected ItemStack getBucketItemStack()  {
+        return new ItemStack(RegistryHandler.ROUGHSHARK_BUCKET.get());
     }
+
     static class SwimGoal extends RandomSwimmingGoal {
         private final RoughSharkEntity fish;
 

@@ -108,7 +108,7 @@ public class RegistryHandler {
     public static final RegistryObject<Item> ANGELFISH_BUCKET = ITEMS.register("bucket_of_angelfish", () -> new FishBucketItem(ModEntityTypes.ANGELFISH, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
     public static final RegistryObject<Item> COCONUT_BUCKET = ITEMS.register("bucket_of_coconut_crab", () -> new FishBucketItem(ModEntityTypes.COCONUTCRAB, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
     public static final RegistryObject<Item> FOOTBALLFISH_BUCKET = ITEMS.register("bucket_of_football_fish", () -> new FishBucketItem(ModEntityTypes.FOOTBALLFISH, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
-    public static final RegistryObject<Item> FOXFACE_BUCKET = ITEMS.register("bucket_of_foxface_fish", () -> new FishBucketItem(ModEntityTypes.ANGELFISH, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
+    public static final RegistryObject<Item> FOXFACE_BUCKET = ITEMS.register("bucket_of_foxface_fish", () -> new FishBucketItem(ModEntityTypes.FOXFACE, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
     public static final RegistryObject<Item> ROYAL_GRAMMA_BUCKET = ITEMS.register("bucket_of_royal_gramma", () -> new FishBucketItem(ModEntityTypes.ROYALGRAMMA, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
     public static final RegistryObject<Item> STARFISH_BUCKET = ITEMS.register("bucket_of_starfish", () -> new FishBucketItem(ModEntityTypes.STARFISH, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
     public static final RegistryObject<Item> PIRANHA_BUCKET = ITEMS.register("bucket_of_piranha", () -> new FishBucketItem(ModEntityTypes.PIRANHA, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
@@ -116,13 +116,15 @@ public class RegistryHandler {
     public static final RegistryObject<Item> TIGERFISH_BUCKET = ITEMS.register("bucket_of_tigerfish", () -> new FishBucketItem(ModEntityTypes.TIGERFISH, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
     public static final RegistryObject<Item> PADDLEFISH_BUCKET = ITEMS.register("bucket_of_paddlefish", () -> new FishBucketItem(ModEntityTypes.PADDLEFISH, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
     public static final RegistryObject<Item> TILAPIA_BUCKET = ITEMS.register("bucket_of_tilapia", () -> new FishBucketItem(ModEntityTypes.TILAPIA, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
-    public static final RegistryObject<Item> TRIOP_BUCKET = ITEMS.register("bucket_of_triop", () -> new FishBucketItem(ModEntityTypes.TRIOP, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
+    public static final RegistryObject<Item> TRIOP_BUCKET = ITEMS.register("bucket_of_triops", () -> new FishBucketItem(ModEntityTypes.TRIOP, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
     public static final RegistryObject<Item> MAHIMAHI_BUCKET = ITEMS.register("bucket_of_mahi_mahi", () -> new FishBucketItem(ModEntityTypes.MAHIMAHI, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
     public static final RegistryObject<Item> BOXFISH_BUCKET = ITEMS.register("bucket_of_boxfish", () -> new FishBucketItem(ModEntityTypes.BOXFISH, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
     public static final RegistryObject<Item> HORSESHOECRAB_BUCKET = ITEMS.register("bucket_of_horseshoe_crab", () -> new FishBucketItem(ModEntityTypes.HORSESHOECRAB, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
     public static final RegistryObject<Item> TILAPIA_ICEFISH = ITEMS.register("bucket_of_ice_fish", () -> new FishBucketItem(ModEntityTypes.ICEFISH, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
     public static final RegistryObject<Item> YETICRAB_BUCKET = ITEMS.register("bucket_of_yeti_crab", () -> new FishBucketItem(ModEntityTypes.YETICRAB, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
     public static final RegistryObject<Item> SPONGEBOB_BUCKET = ITEMS.register("bucket_of_sponge_bob", () -> new FishBucketItem(ModEntityTypes.SPONGEBOB, () -> Fluids.WATER, new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> COWNOSE_BUCKET = ITEMS.register("bucket_of_cownose_ray", () -> new FishBucketItem(ModEntityTypes.COWNOSERAY, () -> Fluids.WATER, new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> ROUGHSHARK_BUCKET = ITEMS.register("bucket_of_rough_shark", () -> new FishBucketItem(ModEntityTypes.ROUGHSHARK, () -> Fluids.WATER, new Item.Properties().stacksTo(1)));
 
 
     // Armor

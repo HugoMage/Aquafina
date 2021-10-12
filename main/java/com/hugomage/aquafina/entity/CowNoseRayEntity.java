@@ -35,8 +35,9 @@ public class CowNoseRayEntity extends AbstractGroupFishEntity {
         return MobEntity.createMobAttributes().add(Attributes.MAX_HEALTH, 10).add(Attributes.ATTACK_DAMAGE, 3D).add(Attributes.MOVEMENT_SPEED, 1.0);
     }
 
-    protected ItemStack getBucketItemStack() {
-        return null;
+    @Override
+    protected ItemStack getBucketItemStack()  {
+        return new ItemStack(RegistryHandler.COWNOSE_BUCKET.get());
     }
 
     @Override
