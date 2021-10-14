@@ -21,7 +21,7 @@ public class SpongeBobRenderer extends MobRenderer<SpongeBobEntity, SpongeBobMod
     public SpongeBobRenderer(EntityRendererManager renderManagerIn) {
         super(renderManagerIn, new SpongeBobModel<>(), 0.2F);
     }
-  
+
     @Override
     public ResourceLocation getTextureLocation(SpongeBobEntity entity) {
         return TEXTURE;
