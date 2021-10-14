@@ -10,14 +10,14 @@ import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.ai.goal.RandomSwimmingGoal;
 import net.minecraft.entity.passive.fish.AbstractGroupFishEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.util.*;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IServerWorld;
@@ -44,6 +44,14 @@ public class MolaMolaEntity extends AbstractGroupFishEntity {
         this.goalSelector.addGoal(1, new MolaMolaEntity.SwimGoal(this));
         this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
 
+    }
+    protected ActionResultType mobInteract(PlayerEntity p_230254_1_, Hand p_230254_2_) {
+        ItemStack itemstack = p_230254_1_.getItemInHand(p_230254_2_);
+        if (itemstack.getItem() == Items.WATER_BUCKET && this.isAlive()) {
+            return ActionResultType.sidedSuccess(this.level.isClientSide);
+        } else {
+            return super.mobInteract(p_230254_1_, p_230254_2_);
+        }
     }
     @Override
     public ItemStack getPickedResult(RayTraceResult target) {

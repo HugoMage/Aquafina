@@ -59,8 +59,9 @@ public class ManOWarEntity extends AbstractGroupFishEntity {
     public ItemStack getPickedResult(RayTraceResult target) {
         return new ItemStack(RegistryHandler.MANOWAR_SPAWN_EGG.get());
     }
-    protected ItemStack getBucketItemStack() {
-        return null;
+    @Override
+    protected ItemStack getBucketItemStack()  {
+        return new ItemStack(RegistryHandler.MANOWAR_BUCKET.get());
     }
 
     @Override

@@ -53,7 +53,7 @@ public class TriopEntity extends AbstractGroupFishEntity {
 
     @Override
     protected ItemStack getBucketItemStack()  {
-        return new ItemStack(RegistryHandler.YETICRAB_BUCKET.get());
+        return new ItemStack(RegistryHandler.TRIOP_BUCKET.get());
     }
 
     protected PathNavigator createNavigation(World world) {

@@ -40,7 +40,7 @@ public class TilapiaEntity extends AbstractGroupFishEntity {
     }
 
     protected ItemStack getBucketItemStack() {
-        return new ItemStack(RegistryHandler.PADDLEFISH_BUCKET.get());
+        return new ItemStack(RegistryHandler.TILAPIA_BUCKET.get());
     }
 
     public int getVariant() {

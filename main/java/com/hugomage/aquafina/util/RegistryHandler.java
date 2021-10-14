@@ -123,8 +123,9 @@ public class RegistryHandler {
     public static final RegistryObject<Item> TILAPIA_ICEFISH = ITEMS.register("bucket_of_ice_fish", () -> new FishBucketItem(ModEntityTypes.ICEFISH, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
     public static final RegistryObject<Item> YETICRAB_BUCKET = ITEMS.register("bucket_of_yeti_crab", () -> new FishBucketItem(ModEntityTypes.YETICRAB, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
     public static final RegistryObject<Item> SPONGEBOB_BUCKET = ITEMS.register("bucket_of_sponge_bob", () -> new FishBucketItem(ModEntityTypes.SPONGEBOB, () -> Fluids.WATER, new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> COWNOSE_BUCKET = ITEMS.register("bucket_of_cownose_ray", () -> new FishBucketItem(ModEntityTypes.COWNOSERAY, () -> Fluids.WATER, new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> ROUGHSHARK_BUCKET = ITEMS.register("bucket_of_rough_shark", () -> new FishBucketItem(ModEntityTypes.ROUGHSHARK, () -> Fluids.WATER, new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> COWNOSE_BUCKET = ITEMS.register("bucket_of_cownose_ray", () -> new FishBucketItem(ModEntityTypes.COWNOSERAY, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
+    public static final RegistryObject<Item> ROUGHSHARK_BUCKET = ITEMS.register("bucket_of_rough_shark", () -> new FishBucketItem(ModEntityTypes.ROUGHSHARK, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
+    public static final RegistryObject<Item> MANOWAR_BUCKET = ITEMS.register("bucket_of_man_o_war", () -> new FishBucketItem(ModEntityTypes.MANOWAR, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
 
 
     // Armor

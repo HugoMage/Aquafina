@@ -15,13 +15,12 @@ import net.minecraft.entity.passive.SquidEntity;
 import net.minecraft.entity.passive.fish.AbstractGroupFishEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.util.*;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.DifficultyInstance;
@@ -43,7 +42,14 @@ public class DumboOctopusEntity extends AbstractGroupFishEntity {
     protected ItemStack getBucketItemStack() {
         return null;
     }
-
+    protected ActionResultType mobInteract(PlayerEntity p_230254_1_, Hand p_230254_2_) {
+        ItemStack itemstack = p_230254_1_.getItemInHand(p_230254_2_);
+        if (itemstack.getItem() == Items.WATER_BUCKET && this.isAlive()) {
+            return ActionResultType.sidedSuccess(this.level.isClientSide);
+        } else {
+            return super.mobInteract(p_230254_1_, p_230254_2_);
+        }
+    }
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new DumboOctopusEntity.SwimGoal(this));

@@ -42,6 +42,7 @@ public class MarlinEntity extends AbstractFishEntity {
 
 
         }
+
     @Override
     public ItemStack getPickedResult(RayTraceResult target) {
         return new ItemStack(RegistryHandler.MARLIN_SPAWN_EGG.get());
@@ -50,18 +51,13 @@ public class MarlinEntity extends AbstractFishEntity {
         return TEMPT_INGREDIENT.test(p_70877_1_);
     }
 
-    public ActionResultType mobInteract(PlayerEntity p_230254_1_, Hand p_230254_2_) {
+    protected ActionResultType mobInteract(PlayerEntity p_230254_1_, Hand p_230254_2_) {
         ItemStack itemstack = p_230254_1_.getItemInHand(p_230254_2_);
-        Item item = itemstack.getItem();
-                if (this.isFood(itemstack) && this.getHealth() < this.getMaxHealth()) {
-                    if (!p_230254_1_.abilities.instabuild) {
-                        itemstack.shrink(1);
-                    }
-
-                    this.heal((float)item.getFoodProperties().getNutrition());
-                    return ActionResultType.SUCCESS;
-                }
-        return super.mobInteract(p_230254_1_, p_230254_2_);
+        if (itemstack.getItem() == Items.WATER_BUCKET && this.isAlive()) {
+            return ActionResultType.sidedSuccess(this.level.isClientSide);
+        } else {
+            return super.mobInteract(p_230254_1_, p_230254_2_);
+        }
     }
 
     @Override
