@@ -1,0 +1,9 @@
+{
+
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:beef"
+  },
+  "result": "aquafina:piranha_meal",
+  "count": 2
+}

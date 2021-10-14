@@ -1,0 +1,72 @@
+{
+  "entity.dababy.ambient": {
+    "category": "entity",
+    "subtitle": "entity.dababy.ambient",
+    "sounds": [
+      {
+        "name": "dabebe:entity/dababy/entity.dababy.ambient",
+        "stream": true
+      }
+    ]
+  },
+  "entity.dababy.hurt": {
+    "category": "entity",
+    "subtitle": "entity.dababy.hurt",
+    "sounds": [
+      {
+        "name": "dabebe:entity/dababy/entity.dababy.hurt",
+        "stream": true
+      }
+    ]
+  },
+  "entity.dababy.death": {
+    "category": "entity",
+    "subtitle": "entity.dababy.death",
+    "sounds": [
+      {
+        "name": "dabebe:entity/dababy/entity.dababy.death",
+        "stream": true
+      }
+    ]
+  },
+  "entity.gnome.ambient": {
+    "category": "entity",
+    "subtitle": "entity.gnome.ambient",
+    "sounds": [
+      {
+        "name": "dabebe:entity/gnome/entity.gnome.ambient",
+        "stream": true
+      }
+    ]
+  },
+  "entity.gnome.hurt": {
+    "category": "entity",
+    "subtitle": "entity.gnome.hurt",
+    "sounds": [
+      {
+        "name": "dabebe:entity/gnome/entity.gnome.hurt",
+        "stream": true
+      }
+    ]
+  },
+  "entity.gnome.death": {
+    "category": "entity",
+    "subtitle": "entity.gnome.death",
+    "sounds": [
+      {
+        "name": "dabebe:entity/gnome/entity.gnome.death",
+        "stream": true
+      }
+    ]
+  },
+  "entity.shrek.ambient": {
+    "category": "entity",
+    "subtitle": "entity.shrek.ambient",
+    "sounds": [
+      {
+        "name": "dabebe:entity/shrek/entity.shrek.ambient",
+        "stream": true
+      }
+    ]
+  }
+}

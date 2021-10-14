@@ -1,0 +1,12 @@
+package com.hugomage.aquafina.item;
+
+import net.minecraft.item.Food;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+
+public class CookedStingrayItem extends Item {
+
+    public CookedStingrayItem() {
+        super(new Properties().tab(ItemGroup.TAB_FOOD).food(new Food.Builder().nutrition(5).saturationMod(0.3F).build()));
+    }
+}

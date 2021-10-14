@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "aquafina:bucket_of_toe_biter"
+  },
+  "result": "aquafina:bucket_of_fried_toe_biter",
+  "experience": 0.35,
+  "cookingtime": 200
+}
