@@ -48,6 +48,10 @@ public class ModEntityTypes {
             EntityType.Builder.of(GoblinSharkEntity::new, EntityClassification.WATER_CREATURE)
                     .sized(1.4f,0.6f)
                     .build(new ResourceLocation(Aquafina.MOD_ID, "goblin_shark").toString()));
+    public static final RegistryObject<EntityType<CoelacanthEntity>> COELACANTH = ENTITY_TYPES.register("coelacanth", ()->
+            EntityType.Builder.of(CoelacanthEntity::new, EntityClassification.WATER_CREATURE)
+                    .sized(1.4f,0.6f)
+                    .build(new ResourceLocation(Aquafina.MOD_ID, "coelacanth").toString()));
     public static final RegistryObject<EntityType<SpiderCrabEntity>> SPIDERCRAB = ENTITY_TYPES.register("spider_crab", ()->
             EntityType.Builder.of(SpiderCrabEntity::new, EntityClassification.WATER_CREATURE)
                     .sized(1.0f,0.6f)
@@ -84,6 +88,10 @@ public class ModEntityTypes {
             EntityType.Builder.of(FoxFaceFishEntity::new, EntityClassification.WATER_CREATURE)
                     .sized(0.4f,0.3f)
                     .build(new ResourceLocation(Aquafina.MOD_ID, "foxface_fish").toString()));
+    public static final RegistryObject<EntityType<SeaHorseEntity>> SEAHORSE = ENTITY_TYPES.register("sea_horse", ()->
+            EntityType.Builder.of(SeaHorseEntity::new, EntityClassification.WATER_CREATURE)
+                    .sized(0.4f,0.3f)
+                    .build(new ResourceLocation(Aquafina.MOD_ID, "sea_horse").toString()));
     public static final RegistryObject<EntityType<GoliathGrouperEntity>> GOLIATHGROUPER = ENTITY_TYPES.register("goliath_grouper", ()->
             EntityType.Builder.of(GoliathGrouperEntity::new, EntityClassification.WATER_CREATURE)
                     .sized(1.0f,1.0f)
@@ -170,7 +178,7 @@ public class ModEntityTypes {
                     .build(new ResourceLocation(Aquafina.MOD_ID, "bull_shark").toString()));
     public static final RegistryObject<EntityType<MolaMolaEntity>> MOLA_MOLA = ENTITY_TYPES.register("mola_mola", ()->
             EntityType.Builder.of(MolaMolaEntity::new, EntityClassification.WATER_CREATURE)
-                    .sized(0.5f,0.5f)
+                    .sized(0.5f,1.5f)
                     .build(new ResourceLocation(Aquafina.MOD_ID, "mola_mola").toString()));
     public static final RegistryObject<EntityType<PiranhaEntity>> PIRANHA = ENTITY_TYPES.register("piranha", ()->
             EntityType.Builder.of(PiranhaEntity::new, EntityClassification.WATER_CREATURE)

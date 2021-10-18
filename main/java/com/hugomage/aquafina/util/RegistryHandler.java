@@ -46,11 +46,13 @@ public class RegistryHandler {
     public static final RegistryObject<Item> PIRANHA_MEAL = ITEMS.register("piranha_meal", ItemBase::new);
     public static final RegistryObject<Item> RAW_TIGERFISH = ITEMS.register("raw_tigerfish", FishItemBase::new);
     public static final RegistryObject<Item> FRESH_SOUP = ITEMS.register("fresh_soup", FreshSoup::new);
+    public static final RegistryObject<SwordItem> MARLIN_SPIKE = ITEMS.register("marlin_spike", () -> new SwordItem(MarlinSpike.MARLIN_SPIKE, 3, -1.8f, new Item.Properties().tab(ItemGroup.TAB_COMBAT)) {});
 
 
 
     // SpawnEgg
     public static final RegistryObject<ModSpawnEggItem> OARFISH_SPAWN_EGG = ITEMS.register("oarfish_spawn_egg",() -> new ModSpawnEggItem(ModEntityTypes.OARFISH, 0xc7cce4, 0xbb042c, new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
+    public static final RegistryObject<ModSpawnEggItem> COELACANTH_SPAWN_EGG = ITEMS.register("coelacanth_spawn_egg",() -> new ModSpawnEggItem(ModEntityTypes.COELACANTH, 0x414566, 0xADB0CE, new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
     public static final RegistryObject<ModSpawnEggItem> SALMON_SHARK_SPAWN_EGG = ITEMS.register("salmon_shark_spawn_egg",() -> new ModSpawnEggItem(ModEntityTypes.SALMONSHARK, 0x576491, 0x101010, new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
     public static final RegistryObject<ModSpawnEggItem> GIANT_STARFISH_SPAWN_EGG = ITEMS.register("giant_starfish_spawn_egg",() -> new ModSpawnEggItem(ModEntityTypes.GIANTSTARFISH, 0xe5841b, 0xfad6af, new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
     public static final RegistryObject<ModSpawnEggItem> ROYAL_GRAMMA_SPAWN_EGG = ITEMS.register("royal_gramma_spawn_egg",() -> new ModSpawnEggItem(ModEntityTypes.ROYALGRAMMA, 0xf8c243, 0x9b21be, new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
@@ -102,6 +104,7 @@ public class RegistryHandler {
     public static final RegistryObject<ModSpawnEggItem> FAT_CARP_SPAWN_EGG = ITEMS.register("fat_carp_spawn_egg",() -> new ModSpawnEggItem(ModEntityTypes.FATCARP, 0x4c521b, 0xf6ba78, new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
     public static final RegistryObject<ModSpawnEggItem> TRIOP_SPAWN_EGG = ITEMS.register("triop_spawn_egg",() -> new ModSpawnEggItem(ModEntityTypes.TRIOP, 0x7b8752, 0xcfccb5, new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
     public static final RegistryObject<ModSpawnEggItem> JUNGLEBLOWFISH_SPAWN_EGG = ITEMS.register("jungle_blowfish_spawn_egg",() -> new ModSpawnEggItem(ModEntityTypes.JUNGLEBLOWFISH, 0xbdbc3e, 0xfae4be, new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
+    public static final RegistryObject<ModSpawnEggItem> SEAHORSE_SPAWN_EGG = ITEMS.register("sea_horse_spawn_egg",() -> new ModSpawnEggItem(ModEntityTypes.SEAHORSE, 0xF52626, 0xFFA1B8, new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
 
 
     // Bucket
@@ -126,6 +129,7 @@ public class RegistryHandler {
     public static final RegistryObject<Item> COWNOSE_BUCKET = ITEMS.register("bucket_of_cownose_ray", () -> new FishBucketItem(ModEntityTypes.COWNOSERAY, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
     public static final RegistryObject<Item> ROUGHSHARK_BUCKET = ITEMS.register("bucket_of_rough_shark", () -> new FishBucketItem(ModEntityTypes.ROUGHSHARK, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
     public static final RegistryObject<Item> MANOWAR_BUCKET = ITEMS.register("bucket_of_man_o_war", () -> new FishBucketItem(ModEntityTypes.MANOWAR, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
+    public static final RegistryObject<Item> SEAHORSE_BUCKET = ITEMS.register("bucket_of_sea_horse", () -> new FishBucketItem(ModEntityTypes.SEAHORSE, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
 
 
     // Armor

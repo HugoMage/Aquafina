@@ -4,6 +4,7 @@ import com.hugomage.aquafina.entity.*;
 import com.hugomage.aquafina.init.ModEntityTypes;
 import com.hugomage.aquafina.util.ClientEventBusSubscriber;
 import com.hugomage.aquafina.util.RegistryHandler;
+import com.hugomage.aquafina.world.gen.AquafinaBiomes;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
@@ -60,6 +61,8 @@ public class Aquafina
         // Register ourselves for server and other game events we are interested in
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         MinecraftForge.EVENT_BUS.register(this);
+        AquafinaBiomes.BIOMES.register(bus);
+        AquafinaBiomes.BUILDERS.register(bus);
         ModEntityTypes.ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
 
         RegistryHandler.init();
@@ -118,6 +121,8 @@ public class Aquafina
         EntitySpawnPlacementRegistry.register(ModEntityTypes.SPONGEBOB.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AbstractFishEntity::checkFishSpawnRules);
         EntitySpawnPlacementRegistry.register(ModEntityTypes.TRIOP.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AbstractFishEntity::checkFishSpawnRules);
         EntitySpawnPlacementRegistry.register(ModEntityTypes.JUNGLEBLOWFISH.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AbstractFishEntity::checkFishSpawnRules);
+        EntitySpawnPlacementRegistry.register(ModEntityTypes.SEAHORSE.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AbstractFishEntity::checkFishSpawnRules);
+        EntitySpawnPlacementRegistry.register(ModEntityTypes.COELACANTH.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AbstractFishEntity::checkFishSpawnRules);
 
     }
     private void registerEntityAttributes(EntityAttributeCreationEvent event) {
@@ -174,6 +179,8 @@ public class Aquafina
         GlobalEntityTypeAttributes.put(ModEntityTypes.SPONGEBOB.get(), FatCarpEntity.setCustomAttributes().build());
         GlobalEntityTypeAttributes.put(ModEntityTypes.TRIOP.get(), TriopEntity.setCustomAttributes().build());
         GlobalEntityTypeAttributes.put(ModEntityTypes.JUNGLEBLOWFISH.get(), JungleBlowfish.setCustomAttributes().build());
+        GlobalEntityTypeAttributes.put(ModEntityTypes.SEAHORSE.get(), SeaHorseEntity.setCustomAttributes().build());
+        GlobalEntityTypeAttributes.put(ModEntityTypes.COELACANTH.get(), CoelacanthEntity.setCustomAttributes().build());
 
     }
     private void registerClient(FMLClientSetupEvent event) {

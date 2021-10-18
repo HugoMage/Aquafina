@@ -73,6 +73,8 @@ public class ClientEventBusSubscriber {
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SPONGEBOB.get(), SpongeBobRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.TRIOP.get(), TriopRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.JUNGLEBLOWFISH.get(), JungleBlowfishRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SEAHORSE.get(), SeaHorseRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.COELACANTH.get(), CoelacanthRenderer::new);
         RenderTypeLookup.setRenderLayer(RegistryHandler.STUFFED_PIRANHA.get(), RenderType.cutout());
 
     }

@@ -1,10 +1,13 @@
 package com.hugomage.aquafina.entity;
 
-import com.hugomage.aquafina.init.ModEntityTypes;
 import com.hugomage.aquafina.util.RegistryHandler;
-import net.minecraft.entity.*;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ILivingEntityData;
+import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraft.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.ai.goal.RandomSwimmingGoal;
 import net.minecraft.entity.passive.fish.AbstractGroupFishEntity;
@@ -20,15 +23,14 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IServerWorld;
 import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
 
 import javax.annotation.Nullable;
 
-public class MolaMolaEntity extends AbstractGroupFishEntity {
-    public MolaMolaEntity(EntityType<? extends MolaMolaEntity> p_i49856_1_, World p_i49856_2_) {
+public class CoelacanthEntity extends AbstractGroupFishEntity {
+    public CoelacanthEntity(EntityType<? extends CoelacanthEntity> p_i49856_1_, World p_i49856_2_) {
         super(p_i49856_1_, p_i49856_2_);
     }
-    private static final DataParameter<Integer> VARIANT = EntityDataManager.defineId(MolaMolaEntity.class, DataSerializers.INT);
+    private static final DataParameter<Integer> VARIANT = EntityDataManager.defineId(CoelacanthEntity.class, DataSerializers.INT);
 
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
         return MobEntity.createMobAttributes().add(Attributes.MAX_HEALTH, 10).add(Attributes.ATTACK_DAMAGE, 3D).add(Attributes.MOVEMENT_SPEED, 1.0);
@@ -36,19 +38,6 @@ public class MolaMolaEntity extends AbstractGroupFishEntity {
 
     protected ItemStack getBucketItemStack() {
         return null;
-    }
-
-    @Override
-    protected void registerGoals() {
-        this.goalSelector.addGoal(1, new MolaMolaEntity.SwimGoal(this));
-        this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
-
-    }
-    @Nullable
-    public MolaMolaEntity getBreedOffspring(ServerWorld serverWorld, MolaMolaEntity MolaMolaEntity) {
-        MolaMolaEntity molamola = ModEntityTypes.MOLA_MOLA.get().create(serverWorld);
-        molamola.setVariant(this.getVariant());
-        return molamola;
     }
     protected ActionResultType mobInteract(PlayerEntity p_230254_1_, Hand p_230254_2_) {
         ItemStack itemstack = p_230254_1_.getItemInHand(p_230254_2_);
@@ -59,8 +48,15 @@ public class MolaMolaEntity extends AbstractGroupFishEntity {
         }
     }
     @Override
+    protected void registerGoals() {
+        this.goalSelector.addGoal(1, new CoelacanthEntity.SwimGoal(this));
+        this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
+        this.goalSelector.addGoal(3, new AvoidEntityGoal<>(this, PlayerEntity.class, 6.0F, 1.0D, 1.2D));
+
+    }
+    @Override
     public ItemStack getPickedResult(RayTraceResult target) {
-        return new ItemStack(RegistryHandler.MOLA_MOLA_SPAWN_EGG.get());
+        return new ItemStack(RegistryHandler.COELACANTH_SPAWN_EGG.get());
     }
     public int getVariant() {
         return this.entityData.get(VARIANT);
@@ -95,22 +91,20 @@ public class MolaMolaEntity extends AbstractGroupFishEntity {
         setVariant(compound.getInt("Variant"));
     }
     @Nullable
-    @Override
     public ILivingEntityData finalizeSpawn(IServerWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
-        spawnDataIn = super.finalizeSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
-        if (dataTag == null) {
-            setVariant(random.nextInt(1));
-        } else {
-            if (dataTag.contains("Variant", 3)){
-                this.setVariant(dataTag.getInt("Variant"));
-            }
+        if(this.random.nextInt(2) == 0){
+            this.setVariant(1);
+        }else if(random.nextInt(2) == 0){
+            this.setVariant(2);
+        }else if(random.nextInt(2) == 0){
+            this.setVariant(3);
         }
-        return spawnDataIn;
+        return super.finalizeSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
     }
     static class SwimGoal extends RandomSwimmingGoal {
-        private final MolaMolaEntity fish;
+        private final CoelacanthEntity fish;
 
-        public SwimGoal(MolaMolaEntity fish) {
+        public SwimGoal(CoelacanthEntity fish) {
             super(fish, 2.0D, 40);
             this.fish = fish;
         }

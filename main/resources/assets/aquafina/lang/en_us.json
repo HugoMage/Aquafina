@@ -66,11 +66,15 @@
   "item.aquafina.bucket_of_toe_biter": "Bucket of Toe Biter",
   "item.aquafina.bucket_of_fried_toe_biter": "Bucket of Fried Toe Biter",
   "item.aquafina.toe_biter_spawn_egg": "Toe Biter Spawn Egg",
+  "item.aquafina.coelacanth_spawn_egg": "Coelacanth Spawn Egg",
   "item.aquafina.jungle_blowfish_spawn_egg": "Jungle Blowfish Spawn Egg",
   "item.aquafina.triop_spawn_egg": "Triop Spawn Egg",
+  "item.aquafina.sea_horse_spawn_egg": "Sea Horse Spawn Egg",
   "item.aquafina.toe_biter_leg": "Toe Biter Leg",
   "item.aquafina.fried_toe_biter_leg": "Fried Toe Biter Leg",
+  "item.aquafina.marlin_spike": "Marlin Spike",
   "entity.aquafina.toe_biter": "Toe Biter",
+  "entity.aquafina.coelacanth": "Coelacanth",
   "item.aquafina.goliath_catfish_spawn_egg": "Goliath Catfish Spawn Egg",
   "entity.aquafina.goliath_catfish": "Goliath Catfish",
   "item.aquafina.beluga_sturgeon_spawn_egg": "Beluga Sturgeon Spawn Egg",
@@ -121,8 +125,10 @@
   "entity.aquafina.goliath_grouper": "Goliath Grouper",
   "entity.aquafina.boxfish": "Boxfish",
   "entity.aquafina.rough_shark": "Rough Shark",
+  "entity.aquafina.sea_horse": "Sea Horse",
   "item.aquafina.spider_crab_leg": "Spider Crab Leg",
   "item.aquafina.bucket_of_man_o_war": "Bucket of Man O War",
+  "item.aquafina.bucket_of_sea_horse": "Bucket of Sea Horse",
   "item.aquafina.bucket_of_coconut_crab": "Bucket of Coconut Crab",
   "item.aquafina.bucket_of_rough_shark": "Bucket of Rough Shark",
   "item.aquafina.bucket_of_football_fish": "Bucket of Football Fish",
@@ -146,6 +152,7 @@
   "item.aquafina.bucket_of_angelfish": "Bucket of AngelFish",
   "item.aquafina.bucket_of_triops": "Bucket of Triops",
   "item.aquafina.bucket_of_sponge_bob": "Bucket of SpongeBob",
-  "item.aquafina.bucket_of_cownose_ray": "Bucket of Cownose Ray"
+  "item.aquafina.bucket_of_cownose_ray": "Bucket of Cownose Ray",
+  "biome.aquafina.hot_ocean": "Hot Ocean"
 
 }

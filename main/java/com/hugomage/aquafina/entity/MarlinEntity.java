@@ -42,7 +42,14 @@ public class MarlinEntity extends AbstractFishEntity {
 
 
         }
+    public void aiStep() {
+        if (!this.isInWater() && this.onGround && this.verticalCollision) {
+            this.onGround = false;
+            this.hasImpulse = false;
+        }
 
+        super.aiStep();
+    }
     @Override
     public ItemStack getPickedResult(RayTraceResult target) {
         return new ItemStack(RegistryHandler.MARLIN_SPAWN_EGG.get());

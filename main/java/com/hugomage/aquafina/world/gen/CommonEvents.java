@@ -67,10 +67,12 @@ public class CommonEvents {
                 event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.GOBLINSHARK.get(),  AquafinaConfig.Common.INSTANCE.GoblinSharkSpawnWeight.get(), 1, 1));
                 event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.SPIDERCRAB.get(),  AquafinaConfig.Common.INSTANCE.SpiderCrabSpawnWeight.get(), 1, 3));
                 event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.CUCUMBER.get(),  AquafinaConfig.Common.INSTANCE.SeaCucumberSpawnWeight.get(), 1, 1));
+                event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.COELACANTH.get(),  AquafinaConfig.Common.INSTANCE.CoelacanthSpawnWeight.get(), 1, 1));
 
             }
             if (name.equals("warm_ocean") || event.getName().equals(new ResourceLocation("minecraft", "deep_warm_ocean"))) {
                 event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.GIANTSTARFISH.get(),  AquafinaConfig.Common.INSTANCE.GiantStarfishSpawnWeight.get(), 1, 1));
+                event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.SEAHORSE.get(),  AquafinaConfig.Common.INSTANCE.SeaHorseSpawnWeight.get(), 1, 2));
                 event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.MORAYEEL.get(),  AquafinaConfig.Common.INSTANCE.MorayEelSpawnWeight.get(), 1, 1));
                 event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.ROCKFISH.get(),  AquafinaConfig.Common.INSTANCE.RockfishSpawnWeight.get(), 1, 2));
                 event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.STARFISH.get(),  AquafinaConfig.Common.INSTANCE.StarfishSpawnWeight.get(), 1, 3));
@@ -110,6 +112,9 @@ public class CommonEvents {
             }
             if (event.getName().equals(new ResourceLocation("minecraft:frozen_river"))) {
                 event.getSpawns().getSpawner(EntityClassification.WATER_AMBIENT).add(new MobSpawnInfo.Spawners(ModEntityTypes.BELUGASTURGEON.get(),  AquafinaConfig.Common.INSTANCE.BelugaSturgeonSpawnWeight.get(), 1, 1));
+            }
+            if (event.getName().equals(new ResourceLocation("minecraft:desert_lakes"))) {
+                event.getSpawns().getSpawner(EntityClassification.WATER_AMBIENT).add(new MobSpawnInfo.Spawners(ModEntityTypes.TRIOP.get(),  AquafinaConfig.Common.INSTANCE.TriopSpawnWeight.get(), 1, 1));
             }
 
         }
