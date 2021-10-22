@@ -1,17 +1,17 @@
 {
   "surface_builder": "minecraft:ocean_sand",
-  "depth": -1.8,
+  "depth": -0.6,
   "scale": 0.1,
   "temperature": 0.5,
   "downfall": 0.5,
   "precipitation": "rain",
-  "category": "none",
+  "category": "ocean",
   "player_spawn_friendly": false,
   "effects": {
     "sky_color": 8103167,
     "fog_color": 12638463,
-    "water_color": 4334010,
-    "water_fog_color": 1115443,
+    "water_color": 5763828,
+    "water_fog_color": 2204050,
     "mood_sound": {
       "sound": "minecraft:ambient.cave",
       "tick_delay": 6000,
@@ -105,13 +105,14 @@
     ]
   },
   "features": [
-    [],
+    [
+    ],
     [
       "minecraft:lake_water",
       "minecraft:lake_lava"
     ],
     [
-      "aquafina:hot_rock"
+      "minecraft:forest_rock"
     ],
     [
       "minecraft:monster_room"
@@ -120,9 +121,9 @@
     [
     ],
     [
-      "aquafina:rocky_sand_hot",
-      "aquafina:hot_tube_worm",
-      "aquafina:shell_sand_hot",
+      "aquafina:rocky_sand",
+      "aquafina:disk_seaweed",
+      "aquafina:shell_sand",
       "minecraft:ore_dirt",
       "minecraft:ore_gravel",
       "minecraft:ore_granite",
@@ -134,12 +135,11 @@
       "minecraft:ore_redstone",
       "minecraft:ore_diamond",
       "minecraft:ore_lapis",
-      "minecraft:disk_sand",
-      "minecraft:disk_clay",
-      "minecraft:disk_gravel"
+      "minecraft:disk_sand"
     ],
     [],
     [
+      "minecraft:seagrass_warm",
       "minecraft:trees_water",
       "minecraft:flower_default",
       "minecraft:patch_grass_badlands",

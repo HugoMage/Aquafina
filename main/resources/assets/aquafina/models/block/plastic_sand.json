@@ -1,0 +1,7 @@
+
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "aquafina:block/plastic_sand"
+  }
+}

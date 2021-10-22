@@ -76,6 +76,8 @@ public class ClientEventBusSubscriber {
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SEAHORSE.get(), SeaHorseRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.COELACANTH.get(), CoelacanthRenderer::new);
         RenderTypeLookup.setRenderLayer(RegistryHandler.STUFFED_PIRANHA.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(RegistryHandler.TUBE.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(RegistryHandler.TUBE_PLANT.get(), RenderType.cutout());
 
     }
 

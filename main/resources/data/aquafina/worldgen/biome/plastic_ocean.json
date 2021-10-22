@@ -1,6 +1,6 @@
 {
   "surface_builder": "minecraft:ocean_sand",
-  "depth": -1.8,
+  "depth": -1,
   "scale": 0.1,
   "temperature": 0.5,
   "downfall": 0.5,
@@ -10,8 +10,8 @@
   "effects": {
     "sky_color": 8103167,
     "fog_color": 12638463,
-    "water_color": 4334010,
-    "water_fog_color": 1115443,
+    "water_color": 4706680,
+    "water_fog_color": 2660986,
     "mood_sound": {
       "sound": "minecraft:ambient.cave",
       "tick_delay": 6000,
@@ -105,14 +105,14 @@
     ]
   },
   "features": [
-    [],
+    [
+      "aquafina:sand_plastic"
+    ],
     [
       "minecraft:lake_water",
       "minecraft:lake_lava"
     ],
-    [
-      "aquafina:hot_rock"
-    ],
+    [],
     [
       "minecraft:monster_room"
     ],
@@ -120,9 +120,8 @@
     [
     ],
     [
-      "aquafina:rocky_sand_hot",
-      "aquafina:hot_tube_worm",
-      "aquafina:shell_sand_hot",
+      "aquafina:rocky_sand",
+      "aquafina:shell_sand",
       "minecraft:ore_dirt",
       "minecraft:ore_gravel",
       "minecraft:ore_granite",

@@ -24,9 +24,19 @@ public class AquafinaBiomes {
     // No static variable to hold as these dummy biomes should NOT be held and referenced elsewhere.
     static {
         HotOcean("hot_ocean", BiomeMaker::theVoidBiome);
+        PlasticOcean("plastic_ocean", BiomeMaker::theVoidBiome);
+        ShallowOcean("shallow_ocean", BiomeMaker::theVoidBiome);
     }
 
     public static RegistryObject<Biome> HotOcean(String name, Supplier<Biome> biome) {
+        BiomeManager.addBiome(BiomeManager.BiomeType.WARM, new BiomeManager.BiomeEntry(RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(MOD_ID, name)), 1));
+        return BIOMES.register(name, biome);
+    }
+    public static RegistryObject<Biome> PlasticOcean(String name, Supplier<Biome> biome) {
+        BiomeManager.addBiome(BiomeManager.BiomeType.DESERT, new BiomeManager.BiomeEntry(RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(MOD_ID, name)), 1));
+        return BIOMES.register(name, biome);
+    }
+    public static RegistryObject<Biome> ShallowOcean(String name, Supplier<Biome> biome) {
         BiomeManager.addBiome(BiomeManager.BiomeType.WARM, new BiomeManager.BiomeEntry(RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(MOD_ID, name)), 1));
         return BIOMES.register(name, biome);
     }

@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:decorated",
+  "config": {
+    "decorator": {
+      "type": "minecraft:decorated",
+      "config": {
+        "outer": {
+          "type": "minecraft:square",
+          "config": {}
+        },
+        "inner": {
+          "type": "minecraft:top_solid_heightmap",
+          "config": {}
+        }
+      }
+    },
+    "feature": {
+      "type": "minecraft:disk",
+      "config": {
+        "state": {
+          "Name": "aquafina:seaweed_block"
+        },
+        "radius": {
+          "base": 2,
+          "spread": 3
+        },
+        "half_height": 2,
+        "targets": [
+          {
+            "Name": "minecraft:sand"
+          }
+        ]
+      }
+    }
+  }
+}

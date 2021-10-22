@@ -153,6 +153,11 @@
   "item.aquafina.bucket_of_triops": "Bucket of Triops",
   "item.aquafina.bucket_of_sponge_bob": "Bucket of SpongeBob",
   "item.aquafina.bucket_of_cownose_ray": "Bucket of Cownose Ray",
-  "biome.aquafina.hot_ocean": "Hot Ocean"
-
+  "biome.aquafina.hot_ocean": "Hot Ocean",
+  "biome.aquafina.shallow_ocean": "Shallow Ocean",
+  "item.aquafina.raw_plastic": "Raw Plastic",
+  "block.aquafina.plastic_sand": "Plastic Sand",
+  "block.aquafina.shell_sand": "Shell Sand",
+  "block.aquafina.rocky_sand": "Rocky Sand",
+  "block.aquafina.seaweed_block": "Seaweed Block"
 }

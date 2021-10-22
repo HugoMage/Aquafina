@@ -2,6 +2,8 @@ package com.hugomage.aquafina;
 
 import com.hugomage.aquafina.entity.*;
 import com.hugomage.aquafina.init.ModEntityTypes;
+import com.hugomage.aquafina.util.AquafinaConfiguredFeatures;
+import com.hugomage.aquafina.util.AquafinaFeatures;
 import com.hugomage.aquafina.util.ClientEventBusSubscriber;
 import com.hugomage.aquafina.util.RegistryHandler;
 import com.hugomage.aquafina.world.gen.AquafinaBiomes;
@@ -12,10 +14,18 @@ import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.WaterMobEntity;
 import net.minecraft.entity.passive.fish.AbstractFishEntity;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.Heightmap;
+import net.minecraft.world.gen.feature.FeatureSpreadConfig;
+import net.minecraft.world.gen.feature.Features;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.ProbabilityConfig;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
+import net.minecraftforge.event.world.BiomeLoadingEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
@@ -34,6 +44,7 @@ import org.lwjgl.system.CallbackI;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -45,7 +56,6 @@ public class Aquafina
     public static final List<Runnable> CALLBACKS = new ArrayList<>();
     private static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "aquafina";
-    private static final String ID = "aquafina";
     public Aquafina() {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, AquafinaConfig.Common.SPEC);
         // Register the setup method for modloading
@@ -63,6 +73,7 @@ public class Aquafina
         MinecraftForge.EVENT_BUS.register(this);
         AquafinaBiomes.BIOMES.register(bus);
         AquafinaBiomes.BUILDERS.register(bus);
+        AquafinaFeatures.FEATURES.register(bus);
         ModEntityTypes.ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
 
         RegistryHandler.init();
@@ -125,6 +136,10 @@ public class Aquafina
         EntitySpawnPlacementRegistry.register(ModEntityTypes.COELACANTH.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AbstractFishEntity::checkFishSpawnRules);
 
     }
+
+
+
+
     private void registerEntityAttributes(EntityAttributeCreationEvent event) {
         GlobalEntityTypeAttributes.put(ModEntityTypes.OARFISH.get(), OarfishEntity.setCustomAttributes().build());
         GlobalEntityTypeAttributes.put(ModEntityTypes.SALMONSHARK.get(), SalmonSharkEntity.setCustomAttributes().build());
@@ -192,7 +207,7 @@ public class Aquafina
     {
         {
 
-
+            AquafinaConfiguredFeatures.registerConfiguredFeatures();
 
 
         // some preinit code

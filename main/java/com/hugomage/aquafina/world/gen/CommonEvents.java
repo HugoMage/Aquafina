@@ -113,6 +113,11 @@ public class CommonEvents {
             if (event.getName().equals(new ResourceLocation("minecraft:frozen_river"))) {
                 event.getSpawns().getSpawner(EntityClassification.WATER_AMBIENT).add(new MobSpawnInfo.Spawners(ModEntityTypes.BELUGASTURGEON.get(),  AquafinaConfig.Common.INSTANCE.BelugaSturgeonSpawnWeight.get(), 1, 1));
             }
+            if (event.getName().equals(new ResourceLocation("aquafina:hot_ocean"))) {
+                event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.YETICRAB.get(),  AquafinaConfig.Common.INSTANCE.YetiCrabSpawnWeight.get(), 2, 6));
+                event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.SPIDERCRAB.get(),  AquafinaConfig.Common.INSTANCE.SpiderCrabSpawnWeight.get(), 1, 3));
+
+            }
             if (event.getName().equals(new ResourceLocation("minecraft:desert_lakes"))) {
                 event.getSpawns().getSpawner(EntityClassification.WATER_AMBIENT).add(new MobSpawnInfo.Spawners(ModEntityTypes.TRIOP.get(),  AquafinaConfig.Common.INSTANCE.TriopSpawnWeight.get(), 1, 1));
             }

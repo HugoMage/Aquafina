@@ -3,9 +3,14 @@ package com.hugomage.aquafina.util;
 
 
 import com.hugomage.aquafina.Aquafina;
+import com.hugomage.aquafina.blocks.*;
 import com.hugomage.aquafina.init.ModEntityTypes;
 import com.hugomage.aquafina.item.*;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialColor;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
@@ -28,6 +33,7 @@ public class RegistryHandler {
 
 
     // Items
+    public static final RegistryObject<Item> PLASTIC = ITEMS.register("raw_plastic", ItemBase::new);
     public static final RegistryObject<Item> RAW_ANGELFISH = ITEMS.register("raw_angelfish", FishItemBase::new);
     public static final RegistryObject<Item> RAW_FOOTBALL_FISH = ITEMS.register("raw_football_fish", FishItemBase::new);
     public static final RegistryObject<Item> RAW_FOXFACE_FISH = ITEMS.register("raw_foxface_fish", FishItemBase::new);
@@ -140,9 +146,19 @@ public class RegistryHandler {
 
     // Blocks
     public static final RegistryObject<com.hugomage.aquafina.blocks.StuffedPiranha> STUFFED_PIRANHA = BLOCKS.register("stuffed_piranha", com.hugomage.aquafina.blocks.StuffedPiranha::new);
+    public static final RegistryObject<TopTubeBlock> TUBE = BLOCKS.register("tube_worm",() -> new TopTubeBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.TERRACOTTA_WHITE).sound(SoundType.BAMBOO).noCollission().instabreak()));
+    public static final RegistryObject<TubeBlock> TUBE_PLANT = BLOCKS.register("tube_worm_plant",() -> new TubeBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.TERRACOTTA_WHITE).sound(SoundType.BAMBOO).noCollission().instabreak()));
+    public static final RegistryObject<PlasticSand> PLASTIC_SAND = BLOCKS.register("plastic_sand", PlasticSand::new);
+    public static final RegistryObject<ShellSand> SHELL_SAND = BLOCKS.register("shell_sand", ShellSand::new);
+    public static final RegistryObject<RockySand> ROCKY_SAND = BLOCKS.register("rocky_sand", RockySand::new);
+    public static final RegistryObject<SeaWeedBlock> SEAWEED_BLOCK = BLOCKS.register("seaweed_block", SeaWeedBlock::new);
 
     // Block Items
     public static final RegistryObject<Item> STUFFED_PIRANHA_ITEM = ITEMS.register("stuffed_piranha", () -> new BlockItem(STUFFED_PIRANHA.get(), new Item.Properties().tab(ItemGroup.TAB_DECORATIONS)));
-
+    public static final RegistryObject<Item> TUBE_ITEM = ITEMS.register("tube_worm", () -> new BlockItem(TUBE.get(), new Item.Properties().tab(ItemGroup.TAB_DECORATIONS)));
+    public static final RegistryObject<Item> PLASTIC_SAND_ITEM = ITEMS.register("plastic_sand", () -> new BlockItem(PLASTIC_SAND.get(), new Item.Properties().tab(ItemGroup.TAB_BUILDING_BLOCKS)));
+    public static final RegistryObject<Item> SHELL_SAND_ITEM = ITEMS.register("shell_sand", () -> new BlockItem(SHELL_SAND.get(), new Item.Properties().tab(ItemGroup.TAB_BUILDING_BLOCKS)));
+    public static final RegistryObject<Item> ROCKY_SAND_ITEM = ITEMS.register("rocky_sand", () -> new BlockItem(ROCKY_SAND.get(), new Item.Properties().tab(ItemGroup.TAB_BUILDING_BLOCKS)));
+    public static final RegistryObject<Item> SEAWEED_BLOCK_ITEM = ITEMS.register("seaweed_block", () -> new BlockItem(SEAWEED_BLOCK.get(), new Item.Properties().tab(ItemGroup.TAB_BUILDING_BLOCKS)));
 
 }
