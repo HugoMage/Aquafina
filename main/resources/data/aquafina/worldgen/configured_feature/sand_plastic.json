@@ -29,7 +29,7 @@
               "type": "minecraft:ore",
               "config": {
                 "state": {
-                  "Name": "aquafina:plastic_sand"
+                  "Name": "aquafina:polluted_sand"
                 },
                 "size": 20,
                 "target": {

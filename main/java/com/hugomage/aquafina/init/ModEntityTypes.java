@@ -95,7 +95,7 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<GoliathGrouperEntity>> GOLIATHGROUPER = ENTITY_TYPES.register("goliath_grouper", ()->
             EntityType.Builder.of(GoliathGrouperEntity::new, EntityClassification.WATER_CREATURE)
                     .sized(1.0f,1.0f)
-                    .build(new ResourceLocation(Aquafina.MOD_ID, "rockfish").toString()));
+                    .build(new ResourceLocation(Aquafina.MOD_ID, "goliath_grouper").toString()));
     public static final RegistryObject<EntityType<CowNoseRayEntity>> COWNOSERAY = ENTITY_TYPES.register("cownose_ray", ()->
             EntityType.Builder.of(CowNoseRayEntity::new, EntityClassification.WATER_CREATURE)
                     .sized(0.4f,0.3f)
@@ -144,6 +144,26 @@ public class ModEntityTypes {
             EntityType.Builder.of(ReefGobyEntity::new, EntityClassification.WATER_CREATURE)
                     .sized(0.4f,0.3f)
                     .build(new ResourceLocation(Aquafina.MOD_ID, "reef_goby").toString()));
+    public static final RegistryObject<EntityType<HatchetFishEntity>> HATCHETFISH = ENTITY_TYPES.register("hatchet_fish", ()->
+            EntityType.Builder.of(HatchetFishEntity::new, EntityClassification.WATER_CREATURE)
+                    .sized(0.4f,0.3f)
+                    .build(new ResourceLocation(Aquafina.MOD_ID, "hatchet_fish").toString()));
+    public static final RegistryObject<EntityType<PlecostomusEntity>> PLECOSTOMUS = ENTITY_TYPES.register("plecostomus", ()->
+            EntityType.Builder.of(PlecostomusEntity::new, EntityClassification.WATER_CREATURE)
+                    .sized(0.4f,0.3f)
+                    .build(new ResourceLocation(Aquafina.MOD_ID, "plecostomus").toString()));
+    public static final RegistryObject<EntityType<TripodFishEntity>> TRIPODFISH = ENTITY_TYPES.register("tripod_fish", ()->
+            EntityType.Builder.of(TripodFishEntity::new, EntityClassification.WATER_CREATURE)
+                    .sized(0.5f,1.0f)
+                    .build(new ResourceLocation(Aquafina.MOD_ID, "tripod_fish").toString()));
+    public static final RegistryObject<EntityType<BigFinSquidEntity>> BIGFINSQUID = ENTITY_TYPES.register("bigfin_squid", ()->
+            EntityType.Builder.of(BigFinSquidEntity::new, EntityClassification.WATER_CREATURE)
+                    .sized(1.0f,-1.0f)
+                    .build(new ResourceLocation(Aquafina.MOD_ID, "bigfin_squid").toString()));
+    public static final RegistryObject<EntityType<SnailFishEntity>> SNAILFISH = ENTITY_TYPES.register("snail_fish", ()->
+            EntityType.Builder.of(SnailFishEntity::new, EntityClassification.WATER_CREATURE)
+                    .sized(0.4f,0.3f)
+                    .build(new ResourceLocation(Aquafina.MOD_ID, "snail_fish").toString()));
     public static final RegistryObject<EntityType<BoxfishEntity>> BOXFISH = ENTITY_TYPES.register("boxfish", ()->
             EntityType.Builder.of(BoxfishEntity::new, EntityClassification.WATER_CREATURE)
                     .sized(0.4f,0.3f)

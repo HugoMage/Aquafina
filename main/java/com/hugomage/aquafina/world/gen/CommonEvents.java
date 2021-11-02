@@ -33,6 +33,7 @@ public class CommonEvents {
             event.getSpawns().getSpawner(EntityClassification.CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.BELUGASTURGEON.get(),  AquafinaConfig.Common.INSTANCE.BelugaSturgeonSpawnWeight.get(), 1, 1));
             event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.FATCARP.get(),  AquafinaConfig.Common.INSTANCE.FatCarpSpawnWeight.get(), 1, 2));
             event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.TRIOP.get(),  AquafinaConfig.Common.INSTANCE.TriopSpawnWeight.get(), 1, 2));
+            event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.PLECOSTOMUS.get(),  AquafinaConfig.Common.INSTANCE.PlecostomusSpawnWeight.get(), 1, 2));
 
         }
         if (event.getCategory() == Biome.Category.JUNGLE) {
@@ -68,6 +69,8 @@ public class CommonEvents {
                 event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.SPIDERCRAB.get(),  AquafinaConfig.Common.INSTANCE.SpiderCrabSpawnWeight.get(), 1, 3));
                 event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.CUCUMBER.get(),  AquafinaConfig.Common.INSTANCE.SeaCucumberSpawnWeight.get(), 1, 1));
                 event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.COELACANTH.get(),  AquafinaConfig.Common.INSTANCE.CoelacanthSpawnWeight.get(), 1, 1));
+                event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.HATCHETFISH.get(),  AquafinaConfig.Common.INSTANCE.HatchetFishSpawnWeight.get(), 1, 1));
+                event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.TRIPODFISH.get(),  AquafinaConfig.Common.INSTANCE.TripodFishSpawnWeight.get(), 1, 1));
 
             }
             if (name.equals("warm_ocean") || event.getName().equals(new ResourceLocation("minecraft", "deep_warm_ocean"))) {
@@ -92,6 +95,7 @@ public class CommonEvents {
             if (name.equals("cold_ocean") || event.getName().equals(new ResourceLocation("minecraft", "deep_cold_ocean"))) {
                 event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.SALMONSHARK.get(),  AquafinaConfig.Common.INSTANCE.SalmonSharkSpawnWeight.get(), 1, 2));
                 event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.SLEEPERSHARK.get(),  AquafinaConfig.Common.INSTANCE.SleeperSharkSpawnWeight.get(), 1, 1));
+                event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.BIGFINSQUID.get(),  AquafinaConfig.Common.INSTANCE.BigfinSquidSpawnWeight.get(), 1, 1));
                 event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.SEASPIDER.get(),  AquafinaConfig.Common.INSTANCE.SeaSpiderSpawnWeight.get(), 1, 4));
                 event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.LIONMANE.get(),  AquafinaConfig.Common.INSTANCE.LionManeJellyfishSpawnWeight.get(), 1, 2));
                 event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.ICEFISH.get(),  AquafinaConfig.Common.INSTANCE.IceFishSpawnWeight.get(), 1, 2));
@@ -100,6 +104,7 @@ public class CommonEvents {
                 event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.MAHIMAHI.get(),  AquafinaConfig.Common.INSTANCE.MahiMahiSpawnWeight.get(), 1, 2));
                 event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.CUCUMBER.get(),  AquafinaConfig.Common.INSTANCE.SeaCucumberSpawnWeight.get(), 1, 1));
                 event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.MARLIN.get(),  AquafinaConfig.Common.INSTANCE.MarlinSpawnWeight.get(), 1, 1));
+                event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.SNAILFISH.get(),  AquafinaConfig.Common.INSTANCE.SnailFishSpawnWeight.get(), 1, 1));
                 event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(ModEntityTypes.MOLA_MOLA.get(),  AquafinaConfig.Common.INSTANCE.MolaMolaSpawnWeight.get(), 1, 1));
 }
             if (event.getName().equals(new ResourceLocation("jellyfishing:jellyfish_fields"))) {

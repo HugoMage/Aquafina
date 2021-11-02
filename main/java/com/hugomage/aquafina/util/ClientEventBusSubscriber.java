@@ -21,6 +21,7 @@ public class ClientEventBusSubscriber {
 
     public static void init() {
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SALMONSHARK.get(), com.hugomage.aquafina.client.renderer.SalmonSharkRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SNAILFISH.get(), com.hugomage.aquafina.client.renderer.SnailFishRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.GIANTSTARFISH.get(), com.hugomage.aquafina.client.renderer.GiantStarfishRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.OARFISH.get(), com.hugomage.aquafina.client.renderer.OarFishRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.ROYALGRAMMA.get(), com.hugomage.aquafina.client.renderer.RoyalGrammaRenderer::new);
@@ -75,6 +76,10 @@ public class ClientEventBusSubscriber {
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.JUNGLEBLOWFISH.get(), JungleBlowfishRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SEAHORSE.get(), SeaHorseRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.COELACANTH.get(), CoelacanthRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.HATCHETFISH.get(), HatchetFishRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.TRIPODFISH.get(), TripodFishRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.PLECOSTOMUS.get(), PlecostomusRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.BIGFINSQUID.get(), BigfinSquidRenderer::new);
         RenderTypeLookup.setRenderLayer(RegistryHandler.STUFFED_PIRANHA.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(RegistryHandler.TUBE.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(RegistryHandler.TUBE_PLANT.get(), RenderType.cutout());

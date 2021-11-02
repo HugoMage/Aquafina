@@ -33,7 +33,6 @@ public class RegistryHandler {
 
 
     // Items
-    public static final RegistryObject<Item> PLASTIC = ITEMS.register("raw_plastic", ItemBase::new);
     public static final RegistryObject<Item> RAW_ANGELFISH = ITEMS.register("raw_angelfish", FishItemBase::new);
     public static final RegistryObject<Item> RAW_FOOTBALL_FISH = ITEMS.register("raw_football_fish", FishItemBase::new);
     public static final RegistryObject<Item> RAW_FOXFACE_FISH = ITEMS.register("raw_foxface_fish", FishItemBase::new);
@@ -52,6 +51,7 @@ public class RegistryHandler {
     public static final RegistryObject<Item> PIRANHA_MEAL = ITEMS.register("piranha_meal", ItemBase::new);
     public static final RegistryObject<Item> RAW_TIGERFISH = ITEMS.register("raw_tigerfish", FishItemBase::new);
     public static final RegistryObject<Item> FRESH_SOUP = ITEMS.register("fresh_soup", FreshSoup::new);
+    public static final RegistryObject<Item> FILTER = ITEMS.register("filter", FilterItem::new);
     public static final RegistryObject<SwordItem> MARLIN_SPIKE = ITEMS.register("marlin_spike", () -> new SwordItem(MarlinSpike.MARLIN_SPIKE, 3, -1.8f, new Item.Properties().tab(ItemGroup.TAB_COMBAT)) {});
 
 
@@ -111,6 +111,11 @@ public class RegistryHandler {
     public static final RegistryObject<ModSpawnEggItem> TRIOP_SPAWN_EGG = ITEMS.register("triop_spawn_egg",() -> new ModSpawnEggItem(ModEntityTypes.TRIOP, 0x7b8752, 0xcfccb5, new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
     public static final RegistryObject<ModSpawnEggItem> JUNGLEBLOWFISH_SPAWN_EGG = ITEMS.register("jungle_blowfish_spawn_egg",() -> new ModSpawnEggItem(ModEntityTypes.JUNGLEBLOWFISH, 0xbdbc3e, 0xfae4be, new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
     public static final RegistryObject<ModSpawnEggItem> SEAHORSE_SPAWN_EGG = ITEMS.register("sea_horse_spawn_egg",() -> new ModSpawnEggItem(ModEntityTypes.SEAHORSE, 0xF52626, 0xFFA1B8, new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
+    public static final RegistryObject<ModSpawnEggItem> SNAIL_FISH_SPAWN_EGG = ITEMS.register("snail_fish_spawn_egg",() -> new ModSpawnEggItem(ModEntityTypes.SNAILFISH, 0xF6F6FF, 0xD7DAF8, new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
+    public static final RegistryObject<ModSpawnEggItem> TRIPOD_FISH_SPAWN_EGG = ITEMS.register("tripod_fish_spawn_egg",() -> new ModSpawnEggItem(ModEntityTypes.TRIPODFISH, 0x2A3F7F, 0x65656A, new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
+    public static final RegistryObject<ModSpawnEggItem> HATCHET_FISH_SPAWN_EGG = ITEMS.register("hatchet_fish_spawn_egg",() -> new ModSpawnEggItem(ModEntityTypes.HATCHETFISH, 0x4F4F4F, 0xA7B2BC, new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
+    public static final RegistryObject<ModSpawnEggItem> PLECOSTOMUS_SPAWN_EGG = ITEMS.register("plecostomus_spawn_egg",() -> new ModSpawnEggItem(ModEntityTypes.PLECOSTOMUS, 0x181826, 0x343445, new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
+    public static final RegistryObject<ModSpawnEggItem> BIGFIN_SQUID_SPAWN_EGG = ITEMS.register("bigfin_squid_spawn_egg",() -> new ModSpawnEggItem(ModEntityTypes.BIGFINSQUID, 0x7F7F7F, 0xAF9D9D, new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
 
 
     // Bucket
@@ -136,6 +141,10 @@ public class RegistryHandler {
     public static final RegistryObject<Item> ROUGHSHARK_BUCKET = ITEMS.register("bucket_of_rough_shark", () -> new FishBucketItem(ModEntityTypes.ROUGHSHARK, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
     public static final RegistryObject<Item> MANOWAR_BUCKET = ITEMS.register("bucket_of_man_o_war", () -> new FishBucketItem(ModEntityTypes.MANOWAR, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
     public static final RegistryObject<Item> SEAHORSE_BUCKET = ITEMS.register("bucket_of_sea_horse", () -> new FishBucketItem(ModEntityTypes.SEAHORSE, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
+    public static final RegistryObject<Item> SNAIL_FISH_BUCKET = ITEMS.register("bucket_of_snail_fish", () -> new FishBucketItem(ModEntityTypes.SNAILFISH, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
+    public static final RegistryObject<Item> TRIPOD_FISH_BUCKET = ITEMS.register("bucket_of_tripod_fish", () -> new FishBucketItem(ModEntityTypes.TRIPODFISH, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
+    public static final RegistryObject<Item> HATCHET_FISH_BUCKET = ITEMS.register("bucket_of_hatchet_fish", () -> new FishBucketItem(ModEntityTypes.HATCHETFISH, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
+    public static final RegistryObject<Item> PLECOSTOMUS_BUCKET = ITEMS.register("bucket_of_plecostomus", () -> new FishBucketItem(ModEntityTypes.PLECOSTOMUS, () -> Fluids.WATER, new Item.Properties().tab(ItemGroup.TAB_MATERIALS).stacksTo(1)));
 
 
     // Armor
@@ -148,7 +157,7 @@ public class RegistryHandler {
     public static final RegistryObject<com.hugomage.aquafina.blocks.StuffedPiranha> STUFFED_PIRANHA = BLOCKS.register("stuffed_piranha", com.hugomage.aquafina.blocks.StuffedPiranha::new);
     public static final RegistryObject<TopTubeBlock> TUBE = BLOCKS.register("tube_worm",() -> new TopTubeBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.TERRACOTTA_WHITE).sound(SoundType.BAMBOO).noCollission().instabreak()));
     public static final RegistryObject<TubeBlock> TUBE_PLANT = BLOCKS.register("tube_worm_plant",() -> new TubeBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.TERRACOTTA_WHITE).sound(SoundType.BAMBOO).noCollission().instabreak()));
-    public static final RegistryObject<PlasticSand> PLASTIC_SAND = BLOCKS.register("plastic_sand", PlasticSand::new);
+    public static final RegistryObject<PlasticSand> PLASTIC_SAND = BLOCKS.register("polluted_sand", PlasticSand::new);
     public static final RegistryObject<ShellSand> SHELL_SAND = BLOCKS.register("shell_sand", ShellSand::new);
     public static final RegistryObject<RockySand> ROCKY_SAND = BLOCKS.register("rocky_sand", RockySand::new);
     public static final RegistryObject<SeaWeedBlock> SEAWEED_BLOCK = BLOCKS.register("seaweed_block", SeaWeedBlock::new);
@@ -156,7 +165,7 @@ public class RegistryHandler {
     // Block Items
     public static final RegistryObject<Item> STUFFED_PIRANHA_ITEM = ITEMS.register("stuffed_piranha", () -> new BlockItem(STUFFED_PIRANHA.get(), new Item.Properties().tab(ItemGroup.TAB_DECORATIONS)));
     public static final RegistryObject<Item> TUBE_ITEM = ITEMS.register("tube_worm", () -> new BlockItem(TUBE.get(), new Item.Properties().tab(ItemGroup.TAB_DECORATIONS)));
-    public static final RegistryObject<Item> PLASTIC_SAND_ITEM = ITEMS.register("plastic_sand", () -> new BlockItem(PLASTIC_SAND.get(), new Item.Properties().tab(ItemGroup.TAB_BUILDING_BLOCKS)));
+    public static final RegistryObject<Item> PLASTIC_SAND_ITEM = ITEMS.register("polluted_sand", () -> new BlockItem(PLASTIC_SAND.get(), new Item.Properties().tab(ItemGroup.TAB_BUILDING_BLOCKS)));
     public static final RegistryObject<Item> SHELL_SAND_ITEM = ITEMS.register("shell_sand", () -> new BlockItem(SHELL_SAND.get(), new Item.Properties().tab(ItemGroup.TAB_BUILDING_BLOCKS)));
     public static final RegistryObject<Item> ROCKY_SAND_ITEM = ITEMS.register("rocky_sand", () -> new BlockItem(ROCKY_SAND.get(), new Item.Properties().tab(ItemGroup.TAB_BUILDING_BLOCKS)));
     public static final RegistryObject<Item> SEAWEED_BLOCK_ITEM = ITEMS.register("seaweed_block", () -> new BlockItem(SEAWEED_BLOCK.get(), new Item.Properties().tab(ItemGroup.TAB_BUILDING_BLOCKS)));

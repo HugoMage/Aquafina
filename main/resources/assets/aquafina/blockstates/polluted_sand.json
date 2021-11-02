@@ -1,0 +1,26 @@
+{
+  "variants": {
+    "": [
+      { "model": "aquafina:block/polluted_sand_0" },
+      { "model": "aquafina:block/polluted_sand_1" },
+      { "model": "aquafina:block/polluted_sand_2" },
+      { "model": "aquafina:block/polluted_sand_3" },
+      { "model": "aquafina:block/polluted_sand_4" },
+      { "model": "aquafina:block/polluted_sand_0", "y" : 90 },
+      { "model": "aquafina:block/polluted_sand_1", "y" : 90 },
+      { "model": "aquafina:block/polluted_sand_2", "y" : 90 },
+      { "model": "aquafina:block/polluted_sand_3", "y" : 90 },
+      { "model": "aquafina:block/polluted_sand_4", "y" : 90 },
+      { "model": "aquafina:block/polluted_sand_0", "y" : 180 },
+      { "model": "aquafina:block/polluted_sand_1", "y" : 180 },
+      { "model": "aquafina:block/polluted_sand_2", "y" : 180 },
+      { "model": "aquafina:block/polluted_sand_3", "y" : 180 },
+      { "model": "aquafina:block/polluted_sand_4", "y" : 180 },
+      { "model": "aquafina:block/polluted_sand_0", "y" : 270 },
+      { "model": "aquafina:block/polluted_sand_1", "y" : 270 },
+      { "model": "aquafina:block/polluted_sand_2", "y" : 270 },
+      { "model": "aquafina:block/polluted_sand_3", "y" : 270 },
+      { "model": "aquafina:block/polluted_sand_4", "y" : 270 }
+    ]
+  }
+}

@@ -1,5 +1,6 @@
 package com.hugomage.aquafina;
 
+import com.hugomage.aquafina.Tags.AquafinaOreFeatureConfig;
 import com.hugomage.aquafina.entity.*;
 import com.hugomage.aquafina.init.ModEntityTypes;
 import com.hugomage.aquafina.util.AquafinaConfiguredFeatures;
@@ -7,6 +8,7 @@ import com.hugomage.aquafina.util.AquafinaFeatures;
 import com.hugomage.aquafina.util.ClientEventBusSubscriber;
 import com.hugomage.aquafina.util.RegistryHandler;
 import com.hugomage.aquafina.world.gen.AquafinaBiomes;
+import com.hugomage.aquafina.world.gen.OreGen.OreGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
@@ -17,10 +19,8 @@ import net.minecraft.entity.passive.fish.AbstractFishEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.Heightmap;
-import net.minecraft.world.gen.feature.FeatureSpreadConfig;
-import net.minecraft.world.gen.feature.Features;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.ProbabilityConfig;
+import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.template.BlockMatchRuleTest;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
@@ -80,6 +80,7 @@ public class Aquafina
 
     }
     private void registerCommon(FMLCommonSetupEvent event) {
+        EntitySpawnPlacementRegistry.register(ModEntityTypes.SNAILFISH.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AbstractFishEntity::checkFishSpawnRules);
         EntitySpawnPlacementRegistry.register(ModEntityTypes.OARFISH.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AbstractFishEntity::checkFishSpawnRules);
         EntitySpawnPlacementRegistry.register(ModEntityTypes.SALMONSHARK.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AbstractFishEntity::checkFishSpawnRules);
         EntitySpawnPlacementRegistry.register(ModEntityTypes.GIANTSTARFISH.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AbstractFishEntity::checkFishSpawnRules);
@@ -121,7 +122,7 @@ public class Aquafina
         EntitySpawnPlacementRegistry.register(ModEntityTypes.BOXFISH.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AbstractFishEntity::checkFishSpawnRules);
         EntitySpawnPlacementRegistry.register(ModEntityTypes.ROUGHSHARK.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AbstractFishEntity::checkFishSpawnRules);
         EntitySpawnPlacementRegistry.register(ModEntityTypes.SEASPIDER.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.OCEAN_FLOOR, AbstractFishEntity::checkFishSpawnRules);
-        EntitySpawnPlacementRegistry.register(ModEntityTypes.LIONMANE.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, WaterMobEntity::checkMobSpawnRules);
+        EntitySpawnPlacementRegistry.register(ModEntityTypes.LIONMANE.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, LionManJellyfishEntity::checkFishSpawnRules);
         EntitySpawnPlacementRegistry.register(ModEntityTypes.ICEFISH.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AbstractFishEntity::checkFishSpawnRules);
         EntitySpawnPlacementRegistry.register(ModEntityTypes.BASKINGSHARK.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AbstractFishEntity::checkFishSpawnRules);
         EntitySpawnPlacementRegistry.register(ModEntityTypes.SLENDER_SUNFISH.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AbstractFishEntity::checkFishSpawnRules);
@@ -134,6 +135,10 @@ public class Aquafina
         EntitySpawnPlacementRegistry.register(ModEntityTypes.JUNGLEBLOWFISH.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AbstractFishEntity::checkFishSpawnRules);
         EntitySpawnPlacementRegistry.register(ModEntityTypes.SEAHORSE.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AbstractFishEntity::checkFishSpawnRules);
         EntitySpawnPlacementRegistry.register(ModEntityTypes.COELACANTH.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AbstractFishEntity::checkFishSpawnRules);
+        EntitySpawnPlacementRegistry.register(ModEntityTypes.PLECOSTOMUS.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AbstractFishEntity::checkFishSpawnRules);
+        EntitySpawnPlacementRegistry.register(ModEntityTypes.HATCHETFISH.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AbstractFishEntity::checkFishSpawnRules);
+        EntitySpawnPlacementRegistry.register(ModEntityTypes.TRIPODFISH.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AbstractFishEntity::checkFishSpawnRules);
+        EntitySpawnPlacementRegistry.register(ModEntityTypes.BIGFINSQUID.get(), EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, BigFinSquidEntity::checkFishSpawnRules);
 
     }
 
@@ -141,6 +146,7 @@ public class Aquafina
 
 
     private void registerEntityAttributes(EntityAttributeCreationEvent event) {
+        GlobalEntityTypeAttributes.put(ModEntityTypes.SNAILFISH.get(), SnailFishEntity.setCustomAttributes().build());
         GlobalEntityTypeAttributes.put(ModEntityTypes.OARFISH.get(), OarfishEntity.setCustomAttributes().build());
         GlobalEntityTypeAttributes.put(ModEntityTypes.SALMONSHARK.get(), SalmonSharkEntity.setCustomAttributes().build());
         GlobalEntityTypeAttributes.put(ModEntityTypes.GIANTSTARFISH.get(), SalmonSharkEntity.setCustomAttributes().build());
@@ -196,6 +202,10 @@ public class Aquafina
         GlobalEntityTypeAttributes.put(ModEntityTypes.JUNGLEBLOWFISH.get(), JungleBlowfish.setCustomAttributes().build());
         GlobalEntityTypeAttributes.put(ModEntityTypes.SEAHORSE.get(), SeaHorseEntity.setCustomAttributes().build());
         GlobalEntityTypeAttributes.put(ModEntityTypes.COELACANTH.get(), CoelacanthEntity.setCustomAttributes().build());
+        GlobalEntityTypeAttributes.put(ModEntityTypes.HATCHETFISH.get(), HatchetFishEntity.setCustomAttributes().build());
+        GlobalEntityTypeAttributes.put(ModEntityTypes.TRIPODFISH.get(), TripodFishEntity.setCustomAttributes().build());
+        GlobalEntityTypeAttributes.put(ModEntityTypes.PLECOSTOMUS.get(), PlecostomusEntity.setCustomAttributes().build());
+        GlobalEntityTypeAttributes.put(ModEntityTypes.BIGFINSQUID.get(), BigFinSquidEntity.setCustomAttributes().build());
 
     }
     private void registerClient(FMLClientSetupEvent event) {
@@ -206,7 +216,11 @@ public class Aquafina
     private void setup(final FMLCommonSetupEvent event)
     {
         {
-
+            OreGenerator.registerFeature(RegistryHandler.SHELL_SAND.get(), new BlockMatchRuleTest(Blocks.SAND), 3, 120, 10);
+            OreGenerator.registerFeature(RegistryHandler.SHELL_SAND.get(), AquafinaOreFeatureConfig.FillerBlockType.SAND, 3, 120, 10);
+            OreGenerator.registerFeature(RegistryHandler.ROCKY_SAND.get(), new BlockMatchRuleTest(Blocks.SAND), 3, 120, 10);
+            OreGenerator.registerFeature(RegistryHandler.ROCKY_SAND.get(), AquafinaOreFeatureConfig.FillerBlockType.SAND, 3, 120, 10);
+            OreGenerator.setupGen();
             AquafinaConfiguredFeatures.registerConfiguredFeatures();
 
 

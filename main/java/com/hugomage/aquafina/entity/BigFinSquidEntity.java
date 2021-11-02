@@ -7,13 +7,10 @@ import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.ai.goal.RandomSwimmingGoal;
-import net.minecraft.entity.passive.SquidEntity;
 import net.minecraft.entity.passive.WaterMobEntity;
-import net.minecraft.entity.passive.fish.AbstractGroupFishEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
@@ -43,7 +40,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Random;
 
-public class LionManJellyfishEntity extends WaterMobEntity {
+public class BigFinSquidEntity extends WaterMobEntity {
     public float xBodyRot;
     public float xBodyRotO;
     public float zBodyRot;
@@ -58,21 +55,21 @@ public class LionManJellyfishEntity extends WaterMobEntity {
     private float tx;
     private float ty;
     private float tz;
-    public LionManJellyfishEntity(EntityType<? extends LionManJellyfishEntity> p_i49856_1_, World p_i49856_2_) {
+    public BigFinSquidEntity(EntityType<? extends BigFinSquidEntity> p_i49856_1_, World p_i49856_2_) {
         super(p_i49856_1_, p_i49856_2_);
     }
-    private static final DataParameter<Integer> VARIANT = EntityDataManager.defineId(LionManJellyfishEntity.class, DataSerializers.INT);
-    @Override
-    public ItemStack getPickedResult(RayTraceResult target) {
-        return new ItemStack(RegistryHandler.LIONMANE_SPAWN_EGG.get());
-    }
-    public static boolean checkFishSpawnRules(EntityType<LionManJellyfishEntity> p_223364_0_, IWorld p_223364_1_, SpawnReason p_223364_2_, BlockPos p_223364_3_, Random p_223364_4_) {
+    public static boolean checkFishSpawnRules(EntityType<BigFinSquidEntity> p_223364_0_, IWorld p_223364_1_, SpawnReason p_223364_2_, BlockPos p_223364_3_, Random p_223364_4_) {
         if (p_223364_3_.getY() > 45 && p_223364_3_.getY() < p_223364_1_.getSeaLevel()) {
             Optional<RegistryKey<Biome>> optional = p_223364_1_.getBiomeName(p_223364_3_);
             return (!Objects.equals(optional, Optional.of(Biomes.COLD_OCEAN)) || !Objects.equals(optional, Optional.of(Biomes.DEEP_COLD_OCEAN))) && p_223364_1_.getFluidState(p_223364_3_).is(FluidTags.WATER);
         } else {
             return false;
         }
+    }
+    private static final DataParameter<Integer> VARIANT = EntityDataManager.defineId(BigFinSquidEntity.class, DataSerializers.INT);
+    @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(RegistryHandler.BIGFIN_SQUID_SPAWN_EGG.get());
     }
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
         return MobEntity.createMobAttributes().add(Attributes.MAX_HEALTH, 10).add(Attributes.ATTACK_DAMAGE, 3D).add(Attributes.MOVEMENT_SPEED, 0.1);
@@ -84,13 +81,11 @@ public class LionManJellyfishEntity extends WaterMobEntity {
 
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(0, new LionManJellyfishEntity.MoveRandomGoal(this));
+        this.goalSelector.addGoal(0, new BigFinSquidEntity.MoveRandomGoal(this));
         this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
 
     }
-    public void playerTouch(PlayerEntity p_70100_1_) {
-        p_70100_1_.addEffect(new EffectInstance(Effects.POISON, 60, 0));
-    }
+
     public int getVariant() {
         return this.entityData.get(VARIANT);
     }
@@ -137,9 +132,9 @@ public class LionManJellyfishEntity extends WaterMobEntity {
         setVariant(compound.getInt("Variant"));
     }
     class MoveRandomGoal extends Goal {
-        private final LionManJellyfishEntity squid;
+        private final BigFinSquidEntity squid;
 
-        public MoveRandomGoal(LionManJellyfishEntity p_i48823_2_) {
+        public MoveRandomGoal(BigFinSquidEntity p_i48823_2_) {
             this.squid = p_i48823_2_;
         }
 
@@ -175,9 +170,9 @@ public class LionManJellyfishEntity extends WaterMobEntity {
         return spawnDataIn;
     }
     static class SwimGoal extends RandomSwimmingGoal {
-        private final LionManJellyfishEntity fish;
+        private final BigFinSquidEntity fish;
 
-        public SwimGoal(LionManJellyfishEntity fish) {
+        public SwimGoal(BigFinSquidEntity fish) {
             super(fish, 2.0D, 40);
             this.fish = fish;
         }

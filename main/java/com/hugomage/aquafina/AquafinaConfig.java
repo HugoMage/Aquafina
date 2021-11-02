@@ -15,7 +15,12 @@ import java.util.Random;
 
 @Mod.EventBusSubscriber(modid = com.hugomage.aquafina.Aquafina.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class AquafinaConfig {
+    public static int HotOceanSpawnWeight;
+    public static int ShallowOceanSpawnWeight;
+    public static int PlasticOceanSpawnWeight;
+
     public static int OarfishSpawnWeight;
+    public static int SnailFishSpawnWeight;
     public static int FatCarpSpawnWeight;
     public static int GiantStarfishSpawnWeight;
     public static int SalmonSharkSpawnWeight;
@@ -70,6 +75,10 @@ public class AquafinaConfig {
     public static int JungleBlowfishSpawnWeight;
     public static int SeaHorseSpawnWeight;
     public static int CoelacanthSpawnWeight;
+    public static int BigfinSquidSpawnWeight;
+    public static int HatchetFishSpawnWeight;
+    public static int TripodFishSpawnWeight;
+    public static int PlecostomusSpawnWeight;
 
 
 
@@ -91,7 +100,16 @@ public class AquafinaConfig {
             INSTANCE = pair.getLeft();
             SPEC = pair.getRight();
         }
+        public final ForgeConfigSpec.IntValue HotOceanSpawnWeight;
+        public final ForgeConfigSpec.IntValue PlasticOceanSpawnWeight;
+        public final ForgeConfigSpec.IntValue ShallowOceanSpawnWeight;
+
+        public final ForgeConfigSpec.IntValue BigfinSquidSpawnWeight;
+        public final ForgeConfigSpec.IntValue TripodFishSpawnWeight;
+        public final ForgeConfigSpec.IntValue HatchetFishSpawnWeight;
+        public final ForgeConfigSpec.IntValue PlecostomusSpawnWeight;
         public final ForgeConfigSpec.IntValue TriopSpawnWeight;
+        public final ForgeConfigSpec.IntValue SnailFishSpawnWeight;
         public final ForgeConfigSpec.IntValue SeaHorseSpawnWeight;
         public final ForgeConfigSpec.IntValue OarfishSpawnWeight;
         public final ForgeConfigSpec.IntValue FatCarpSpawnWeight;
@@ -149,7 +167,16 @@ public class AquafinaConfig {
 
 
         public static void reload() {
+            AquafinaConfig.HotOceanSpawnWeight = INSTANCE.HotOceanSpawnWeight.get();
+            AquafinaConfig.ShallowOceanSpawnWeight = INSTANCE.ShallowOceanSpawnWeight.get();
+            AquafinaConfig.PlasticOceanSpawnWeight = INSTANCE.PlasticOceanSpawnWeight.get();
+
+            AquafinaConfig.BigfinSquidSpawnWeight = INSTANCE.BigfinSquidSpawnWeight.get();
+            AquafinaConfig.HatchetFishSpawnWeight = INSTANCE.HatchetFishSpawnWeight.get();
+            AquafinaConfig.TripodFishSpawnWeight = INSTANCE.TripodFishSpawnWeight.get();
+            AquafinaConfig.PlecostomusSpawnWeight = INSTANCE.PlecostomusSpawnWeight.get();
             AquafinaConfig.TriopSpawnWeight = INSTANCE.TriopSpawnWeight.get();
+            AquafinaConfig.SnailFishSpawnWeight = INSTANCE.SnailFishSpawnWeight.get();
             AquafinaConfig.SeaHorseSpawnWeight = INSTANCE.SeaHorseSpawnWeight.get();
             AquafinaConfig.OarfishSpawnWeight = INSTANCE.OarfishSpawnWeight.get();
             AquafinaConfig.FatCarpSpawnWeight = INSTANCE.FatCarpSpawnWeight.get();
@@ -206,6 +233,14 @@ public class AquafinaConfig {
             AquafinaConfig.CoelacanthSpawnWeight = INSTANCE.CoelacanthSpawnWeight.get();
         }
         Common(ForgeConfigSpec.Builder builder) {
+
+            builder.push("Biome Generation Weight");
+            HotOceanSpawnWeight = builder.comment("Generation weight of Hot Ocean").defineInRange("hot_ocean_generation_weight", 1, 0, 1000);
+            ShallowOceanSpawnWeight = builder.comment("Generation weight of Shallow Ocean").defineInRange("shallow_ocean_generation_weight", 1, 0, 1000);
+            PlasticOceanSpawnWeight = builder.comment("Generation weight of Plastic Ocean").defineInRange("plastic_ocean_generation_weight", 1, 0, 1000);
+
+            builder.pop();
+
             builder.push("Jungle Fighters Spawn Weight");
             PiranhaSpawnWeight = builder.comment("Spawn weight of Piranha").defineInRange("piranha_spawn_weight", 70, 0, 1000);
             ArapaimaSpawnWeight = builder.comment("Spawn weight of Arapaima").defineInRange("arapaima_spawn_weight", 70, 0, 1000);
@@ -222,6 +257,7 @@ public class AquafinaConfig {
             ToeBiterSpawnWeight = builder.comment("Spawn weight of Toe Biter").defineInRange("toe_biter_spawn_weight", 30, 0, 1000);
             RiverSharkSpawnWeight = builder.comment("Spawn weight of RiverShark").defineInRange("rivershark_spawn_weight", 10, 0, 1000);
             TriopSpawnWeight = builder.comment("Spawn weight of Triop").defineInRange("triop_spawn_weight", 30, 0, 1000);
+            PlecostomusSpawnWeight = builder.comment("Spawn weight of Plecostomus").defineInRange("plecostomus_spawn_weight", 30, 0, 1000);
             builder.pop();
 
 
@@ -241,6 +277,9 @@ public class AquafinaConfig {
             YetiCrabSpawnWeight = builder.comment("Spawn weight of Yeti Crab").defineInRange("yeti_crab_spawn_weight", 40, 0, 1000);
             SpiderCrabSpawnWeight = builder.comment("Spawn weight of Spider Crab").defineInRange("spider_crab_spawn_weight", 10, 0, 1000);
             GoblinSharkSpawnWeight = builder.comment("Spawn weight of Goblin Shark").defineInRange("goblin_shark_spawn_weight", 10, 0, 1000);
+            HatchetFishSpawnWeight = builder.comment("Spawn weight of Hatchet Fish").defineInRange("hatchet_fish_spawn_weight", 10, 0, 1000);
+            TripodFishSpawnWeight = builder.comment("Spawn weight of Tripod Fish").defineInRange("tripod_fish_spawn_weight", 10, 0, 1000);
+
             builder.pop();
 
             builder.push("Cold Ocean Titans Spawn Weight");
@@ -254,6 +293,8 @@ public class AquafinaConfig {
             MarlinSpawnWeight = builder.comment("Spawn weight of Marlin").defineInRange("marlin_spawn_weight", 10, 0, 1000);
             MolaMolaSpawnWeight = builder.comment("Spawn weight of Mola Mola").defineInRange("mola_mola_spawn_weight", 10, 0, 1000);
             SeaSpiderSpawnWeight = builder.comment("Spawn weight of Sea Spider").defineInRange("sea_spider_spawn_weight", 10, 0, 1000);
+            SnailFishSpawnWeight = builder.comment("Spawn weight of Snail Fish").defineInRange("snail_fish_spawn_weight", 10, 0, 1000);
+            BigfinSquidSpawnWeight = builder.comment("Spawn weight of Bigfin Squid").defineInRange("bigfin_squid_spawn_weight", 10, 0, 1000);
             builder.pop();
 
             builder.push("Warm Stayers Spawn Weight");
