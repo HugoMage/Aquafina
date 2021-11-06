@@ -25,7 +25,7 @@ public class AquafinaBiomes {
     // No static variable to hold as these dummy biomes should NOT be held and referenced elsewhere.
     static {
         //HotOcean("hot_ocean", BiomeMaker::theVoidBiome);
-        PlasticOcean("plastic_ocean", BiomeMaker::theVoidBiome);
+        //PlasticOcean("plastic_ocean", BiomeMaker::theVoidBiome);
         //ShallowOcean("shallow_ocean", BiomeMaker::theVoidBiome);
     }
 
