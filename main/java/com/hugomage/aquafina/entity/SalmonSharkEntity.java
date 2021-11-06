@@ -15,9 +15,8 @@ import net.minecraft.entity.passive.fish.AbstractGroupFishEntity;
 import net.minecraft.entity.passive.fish.SalmonEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.item.Items;
+import net.minecraft.util.*;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
@@ -43,6 +42,14 @@ public class SalmonSharkEntity extends AbstractGroupFishEntity {
 
 
 
+    }
+    protected ActionResultType mobInteract(PlayerEntity p_230254_1_, Hand p_230254_2_) {
+        ItemStack itemstack = p_230254_1_.getItemInHand(p_230254_2_);
+        if (itemstack.getItem() == Items.WATER_BUCKET && this.isAlive()) {
+            return ActionResultType.sidedSuccess(this.level.isClientSide);
+        } else {
+            return super.mobInteract(p_230254_1_, p_230254_2_);
+        }
     }
     @Override
     public ItemStack getPickedResult(RayTraceResult target) {

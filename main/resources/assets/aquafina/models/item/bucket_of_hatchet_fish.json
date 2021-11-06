@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "aquafina:item/bucket_of_marine_hatchetfish"
+    "layer0": "aquafina:item/bucket_of_hatchetfish"
   }
 }
